@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+ #include "Fixed.hpp"
 
 const int Fixed::_scale = 8;
 
