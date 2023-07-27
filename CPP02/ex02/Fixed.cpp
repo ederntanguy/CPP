@@ -126,6 +126,7 @@ int Fixed::max(const Fixed &a, const Fixed &b) {
 	return  a.getRawBits();}
 
 
+
 std::ostream &operator<<(std::ostream &o, const Fixed &i)
 {
 	o << (static_cast<float>(i.getRawBits()) / (1 << 8));
