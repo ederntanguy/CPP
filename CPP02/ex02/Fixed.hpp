@@ -23,15 +23,18 @@ public:
 	Fixed	&operator-(const Fixed &rhs);
 	Fixed	&operator/(const Fixed &rhs);
 	Fixed	&operator*(const Fixed &rhs);
-//	Fixed	&operator++(const Fixed &rhs);
-//	Fixed	&operator--(const Fixed &rhs);
-	static int			min(const Fixed &a, const Fixed &b);
-	static const int	constMin(const Fixed &a, const Fixed &b);
-	static int			max(const Fixed &a, const Fixed &b);
-	static const int	constMan(const Fixed &a, const Fixed &b);
+	Fixed	&operator++(int);
+	Fixed	&operator--(int);
+	Fixed	&operator++();
+	Fixed	&operator--();
+	static float	min(const Fixed &a, const Fixed &b);
+	static float	constMin(const Fixed &a, const Fixed &b);
+	static float	max(const Fixed &a, const Fixed &b);
+	static float	constMax(const Fixed &a, const Fixed &b);
 
 
 
+	float getFixedNumber() const;
 	int getRawBits( void ) const;
 	void setRawBits( int const raw );
 	float toFloat( void ) const;
