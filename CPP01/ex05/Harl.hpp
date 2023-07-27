@@ -15,6 +15,7 @@ private:
 	void info( void );
 	void warning( void );
 	void error( void );
+	void (Harl::*f[4])();
 
 };
 

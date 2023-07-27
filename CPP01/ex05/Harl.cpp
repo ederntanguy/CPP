@@ -1,6 +1,11 @@
 #include "Harl.hpp"
 
-Harl::Harl() {}
+Harl::Harl() {
+	f[0] = &Harl::debug;
+	f[1] = &Harl::info;
+	f[2] = &Harl::warning;
+	f[3] = &Harl::error;
+}
 
 Harl::~Harl() {}
 
@@ -17,15 +22,16 @@ void Harl::warning() {
 }
 
 void Harl::error() {
-	std::cout << "AU SECROUS IL Y A UN OURS BRUN A LA MAISON" << std::endl;
+	std::cout << "je me suis fait manger le bras" << std::endl;
 }
 
 void Harl::complain(std::string level) {
-	void (Harl::*f[4])();
-
-	f[0] = &Harl::debug;
-	f[1] = &Harl::info;
-	f[2] = &Harl::warning;
-	f[3] = &Harl::error;
-	(this->*f[level[0] - '0'])();
+	if (level == "DEBUG")
+		(this->*f[0])();
+	else if (level == "INFO")
+		(this->*f[1])();
+	else if (level == "WARNING")
+		(this->*f[2])();
+	else if (level == "ERROR")
+		(this->*f[3])();
 }

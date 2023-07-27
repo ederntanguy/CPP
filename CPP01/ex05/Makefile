@@ -1,6 +1,6 @@
-NAME		=	replace
+NAME		=	harl
 
-SRCS		=	main.cpp
+SRCS		=	main.cpp Harl.cpp
 
 OBJDIR_SRCS		=	obj
 
