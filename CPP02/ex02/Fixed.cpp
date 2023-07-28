@@ -38,21 +38,21 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
 }
 
 Fixed &Fixed::operator*(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>(this->getFixedNumber() * rhs.getFixedNumber() * (1 << _scale)));
+	this->setRawBits(static_cast<int>((this->getFixedNumber() * rhs.getFixedNumber()) * (1 << _scale)));
 	return *this;
 }
 
 Fixed &Fixed::operator/(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>(this->getFixedNumber() / rhs.getFixedNumber() * (1 << _scale)));
+	this->setRawBits(static_cast<int>((this->getFixedNumber() / rhs.getFixedNumber()) * (1 << _scale)));
 	return *this;
 }
 
 Fixed &Fixed::operator-(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>(this->getFixedNumber() - rhs.getFixedNumber() * (1 << _scale)));
+	this->setRawBits(static_cast<int>((this->getFixedNumber() - rhs.getFixedNumber()) * (1 << _scale)));
 	return *this;}
 
 Fixed &Fixed::operator+(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>(this->getFixedNumber() + rhs.getFixedNumber() * (1 << _scale)));
+	this->setRawBits(static_cast<int>((this->getFixedNumber() + rhs.getFixedNumber()) * (1 << _scale)));
 	return *this;}
 
 bool Fixed::operator!=(const Fixed &rhs) const {
@@ -62,27 +62,27 @@ bool Fixed::operator!=(const Fixed &rhs) const {
 }
 
 bool Fixed::operator>=(const Fixed &rhs) const {
-	if (this->_rawBits != rhs.getRawBits())
+	if (this->_rawBits >= rhs.getRawBits())
 		return true;
 	return false;}
 
 bool Fixed::operator<=(const Fixed &rhs) const {
-	if (this->_rawBits != rhs.getRawBits())
+	if (this->_rawBits <= rhs.getRawBits())
 		return true;
 	return false;}
 
 bool Fixed::operator>(const Fixed &rhs) const {
-	if (this->_rawBits != rhs.getRawBits())
+	if (this->_rawBits > rhs.getRawBits())
 		return true;
 	return false;}
 
 bool Fixed::operator<(const Fixed &rhs) const {
-	if (this->_rawBits != rhs.getRawBits())
+	if (this->_rawBits < rhs.getRawBits())
 		return true;
 	return false;}
 
 bool Fixed::operator==(const Fixed &rhs) const {
-	if (this->_rawBits != rhs.getRawBits())
+	if (this->_rawBits == rhs.getRawBits())
 		return true;
 	return false;}
 
