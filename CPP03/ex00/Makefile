@@ -1,6 +1,6 @@
-NAME		=	zombie
+NAME		=	clapTrap
 
-SRCS		=	main.cpp zombieHorde.cpp Zombie.cpp
+SRCS		=	main.cpp ClapTrap.cpp
 
 OBJDIR_SRCS		=	obj
 
