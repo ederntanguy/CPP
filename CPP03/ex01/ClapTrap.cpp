@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap() : _name(""), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
 	std::cout << "le ClapTrap a bien ete cree" << std::endl;
 }
 
@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 	*this = src;
 }
 
-ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
 	std::cout << "le ClapTrap " << name << " a bien ete cree" << std::endl;
 }
 
@@ -33,7 +33,7 @@ void ClapTrap::attack(const std::string &target) {
 	}
 	else if (this->_hitPoints <= 0)
 	{
-		std::cout << "Malheureusement " << this->_name << " es mort, il ne peut plus attquer" << std::endl;
+		std::cout << "Malheureusement " << this->_name << " es mort, il ne peut plus attaquer" << std::endl;
 		return;
 	}
 	this->_energyPoints--;
