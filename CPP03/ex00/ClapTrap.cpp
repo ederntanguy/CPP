@@ -39,10 +39,10 @@ void ClapTrap::takeDamage(unsigned int amount) {
 		std::cout << "Son adversaire s'acharne vraiment sur lui car il est deja mort..." << std::endl;
 		return;
 	}
-	if (this->_hitPoints - amount <= 0)
+	if (this->_hitPoints <= amount)
 	{
 		this->_hitPoints = 0;
-		std::cout << "avec cette attaque"  << this->_name << "succombe a ses blessures" << std::endl;
+		std::cout << "avec cette attaque "  << this->_name << " succombe a ses blessures" << std::endl;
 		return;
 	}
 	std::cout << this->_name << " perd " << amount << "pv, il ne lui reste plus que " << this->_hitPoints - amount << "pv" << std::endl;
@@ -63,5 +63,5 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	}
 	this->_energyPoints--;
 	this->_hitPoints += amount;
-	std::cout << this->_name << " gagne " << amount << " pv " << std::endl;
+	std::cout << this->_name << " gagne " << amount << " pv il a maintenant " << this->_hitPoints << "pv" << std::endl;
 }
