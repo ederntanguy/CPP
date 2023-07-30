@@ -1,12 +1,12 @@
 #ifndef CPP03_SCAVTRAP_HPP
 #define CPP03_SCAVTRAP_HPP
-#include "../ex01/ClapTrap.hpp"
+#include "ClapTrap.hpp"
 #include <string>
 
 class ScavTrap : public ClapTrap {
 public:
 	ScavTrap();
-	ScavTrap(std::string name);
+	ScavTrap(const std::string &name);
 	ScavTrap(const ScavTrap &src);
 	~ScavTrap();
 
@@ -14,12 +14,6 @@ public:
 
 	void attack(const std::string& target);
 	void guardGate();
-
-private:
-	std::string _name;
-	unsigned int _hitPoints;
-	unsigned int _energyPoints;
-	unsigned int _attackDamage;
 };
 
 

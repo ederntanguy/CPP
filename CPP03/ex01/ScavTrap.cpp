@@ -9,6 +9,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)  {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
+	std::cout << "le ScavTrap " << this->_name << " a bien ete cree" << std::endl;
 	*this = src;
 }
 
@@ -33,7 +34,7 @@ void ScavTrap::attack(const std::string &target) {
 	}
 	else if (this->_hitPoints <= 0)
 	{
-		std::cout << "Malheureusement " << this->_name << " le fabuleux ScavTrap es mort, il ne peut plus attaquer" << std::endl;
+		std::cout << "Malheureusement " << this->_name << " le fabuleux ScavTrap est mort, il ne peut plus attaquer" << std::endl;
 		return;
 	}
 	this->_energyPoints--;

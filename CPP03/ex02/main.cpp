@@ -1,4 +1,5 @@
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main() {
 	ScavTrap toutou("toutou");
@@ -19,11 +20,11 @@ int main() {
 
 	inspecteurGadget.beRepaired(10000);
 	inspecteurGadget.takeDamage(1000);
-	inspecteurGadget.attack("eclaire en chocolat");
 	inspecteurGadget.takeDamage(9000);
 	inspecteurGadget.takeDamage(100000000);
 	inspecteurGadget.takeDamage(1000);
 	inspecteurGadget.attack("eclaire en chocolat");
+
 
 	std::cout << std::endl;
 	ScavTrap miaou("miaou");

@@ -1,6 +1,6 @@
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : _name(""), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ClapTrap::ClapTrap() : _name(""), _hitPoints(100), _energyPoints(100), _attackDamage(30) {
 	std::cout << "le ClapTrap a bien ete cree" << std::endl;
 }
 
@@ -9,7 +9,7 @@ ClapTrap::ClapTrap(const ClapTrap &src) {
 	*this = src;
 }
 
-ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20) {
+ClapTrap::ClapTrap(const std::string &name) : _name(name), _hitPoints(100), _energyPoints(100), _attackDamage(30) {
 	std::cout << "le ClapTrap " << name << " a bien ete cree" << std::endl;
 }
 

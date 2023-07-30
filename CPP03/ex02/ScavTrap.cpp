@@ -1,18 +1,21 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap() : _name(""), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+ScavTrap::ScavTrap() {
 	std::cout << "le ScavTrap a bien ete cree" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)  {
 	std::cout << "le ScavTrap " << name << " a bien ete cree" << std::endl;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &src) {
+ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
+	std::cout << "le ScavTrap " << this->_name << " a bien ete cree" << std::endl;
 	*this = src;
 }
 
-ScavTrap::~ScavTrap() {}
+ScavTrap::~ScavTrap() {
+	std::cout << "le ScavTrap " << this->_name << " a bien ete detruit" << std::endl;
+}
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &rhs) {
 	this->_name = rhs._name;
@@ -30,7 +33,7 @@ void ScavTrap::attack(const std::string &target) {
 	}
 	else if (this->_hitPoints <= 0)
 	{
-		std::cout << "Malheureusement " << this->_name << " le fabuleux ScavTrap es mort, on ne peut plus rien faire pour lui" << std::endl;
+		std::cout << "Malheureusement " << this->_name << " le fabuleux ScavTrap est mort, il ne peut plus attaquer" << std::endl;
 		return;
 	}
 	this->_energyPoints--;
