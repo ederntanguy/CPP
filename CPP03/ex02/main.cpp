@@ -3,19 +3,23 @@
 
 int main() {
 	ScavTrap toutou("toutou");
+
 	ClapTrap inspecteurGadget("inpercteur gadget");
 
 	toutou.attack("renard");
 	toutou.takeDamage(20);
 	toutou.attack("renard");
 	toutou.takeDamage(40);
-	toutou.guardGate();
-	toutou.beRepaired(3);
-	toutou.takeDamage(90);
-	toutou.attack("renard");
-	toutou.beRepaired(50);
-	toutou.takeDamage(2);
-	toutou.guardGate();
+
+	ScavTrap wouaf = toutou;
+
+	wouaf.guardGate();
+	wouaf.beRepaired(3);
+	wouaf.takeDamage(90);
+	wouaf.attack("renard");
+	wouaf.beRepaired(50);
+	wouaf.takeDamage(2);
+	wouaf.guardGate();
 
 	std::cout << std::endl;
 
@@ -34,7 +38,7 @@ int main() {
 	miaou.highFivesGuys();
 
 	for (int i = 0; i < 93; ++i) {
-		miaou.attack("le vilain petit canard");
+		miaou.beRepaired(10);
 	}
 	miaou.highFivesGuys();
 	miaou.beRepaired(12);

@@ -9,7 +9,7 @@ ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)  {
 }
 
 ScavTrap::ScavTrap(const ScavTrap &src) : ClapTrap(src) {
-	std::cout << "le ScavTrap " << this->name << " a bien ete cree" << std::endl;
+	std::cout << "le ScavTrap " << src.name << " a bien ete cree" << std::endl;
 	*this = src;
 }
 

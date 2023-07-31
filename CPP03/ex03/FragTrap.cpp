@@ -9,7 +9,7 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
 }
 
 FragTrap::FragTrap(const FragTrap &src) : ClapTrap(src) {
-	std::cout << "le FragTrap " << this->name << " a bien ete cree" << std::endl;
+	std::cout << "le FragTrap " << src.name << " a bien ete cree" << std::endl;
 	*this = src;
 }
 
@@ -17,20 +17,6 @@ FragTrap::~FragTrap() {
 	std::cout << "le FragTrap " << this->name << " a bien ete detruit" << std::endl;
 }
 
-void FragTrap::attack(const std::string &target) {
-	if (this->energyPoints <= 0)
-	{
-		std::cout << this->name << " l'incroyable FragTrap n'a plus d'energie, il ne peut plus attaquer !" << std::endl;
-		return;
-	}
-	else if (this->hitPoints <= 0)
-	{
-		std::cout << "Malheureusement " << this->name << " l'incroyable FragTrap est mort, il ne peut plus attaquer" << std::endl;
-		return;
-	}
-	this->energyPoints--;
-	std::cout << this->name << " l'incroyable FragTrap attack " << target << ", " << target << " perd " << this->attackDamage << "pv" << std::endl;
-}
 
 void FragTrap::highFivesGuys(void) {
 	std::string answer;
