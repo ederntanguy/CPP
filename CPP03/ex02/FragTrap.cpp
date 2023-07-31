@@ -41,3 +41,11 @@ void FragTrap::highFivesGuys(void) {
 	else
 		std::cout << this->_name << " prend sont elan, saute a votre hauteur et vous lui lacher un gros vent, vous avez fait pleurer " << this->_name << "..." << std::endl;
 }
+
+FragTrap &FragTrap::operator=(const FragTrap &rhs) {
+	this->_name = rhs._name;
+	this->_energyPoints = rhs._energyPoints;
+	this->_attackDamage =rhs._attackDamage;
+	this->_hitPoints = rhs._hitPoints;
+	return *this;
+}

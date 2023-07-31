@@ -9,6 +9,7 @@ int main() {
 	toutou.takeDamage(20);
 	toutou.attack("renard");
 	toutou.takeDamage(40);
+	toutou.guardGate();
 	toutou.beRepaired(3);
 	toutou.takeDamage(90);
 	toutou.attack("renard");
@@ -19,6 +20,7 @@ int main() {
 	std::cout << std::endl;
 
 	inspecteurGadget.beRepaired(10000);
+	inspecteurGadget.attack("eclaire en chocolat");
 	inspecteurGadget.takeDamage(1000);
 	inspecteurGadget.takeDamage(9000);
 	inspecteurGadget.takeDamage(100000000);
@@ -27,16 +29,23 @@ int main() {
 
 
 	std::cout << std::endl;
-	ScavTrap miaou("miaou");
+	FragTrap miaou("miaou");
 
-	miaou.guardGate();
-	for (int i = 0; i < 48; ++i) {
+	miaou.highFivesGuys();
+
+	for (int i = 0; i < 93; ++i) {
 		miaou.attack("le vilain petit canard");
 	}
-
+	miaou.highFivesGuys();
 	miaou.beRepaired(12);
 	miaou.beRepaired(12);
 	miaou.beRepaired(12);
+	miaou.beRepaired(12);
+	miaou.attack("le vilain petit canard");
+	miaou.attack("le vilain petit canard");
+	miaou.attack("le vilain petit canard");
+	miaou.beRepaired(12);
+	miaou.highFivesGuys();
 	miaou.beRepaired(12);
 	miaou.attack("le vilain petit canard");
 

@@ -60,7 +60,7 @@ void ClapTrap::takeDamage(unsigned int amount) {
 void ClapTrap::beRepaired(unsigned int amount) {
 	if (this->_energyPoints <= 0)
 	{
-		std::cout << this->_name << " n'a plus d'energie, il ne peut plus attaquer !" << std::endl;
+		std::cout << this->_name << " n'a plus d'energie, il ne peut plus se soigner !" << std::endl;
 		return;
 	}
 	else if (this->_hitPoints <= 0)
