@@ -6,9 +6,7 @@ Fixed::Fixed() : _rawBits(0) {}
 
 Fixed::Fixed(const int &value) : _rawBits(value << _scale) {}
 
-Fixed::Fixed(const float &value) : _rawBits(roundf(value * (1 << _scale))) {
-//	std::cout << "ici : " << (1 << _scale) << std::endl;
-}
+Fixed::Fixed(const float &value) : _rawBits(roundf(value * (1 << _scale))) {}
 
 Fixed::Fixed(const Fixed &src) {
 	*this = src;
@@ -37,23 +35,27 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
 	return *this;
 }
 
-Fixed &Fixed::operator*(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() * rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;
+Fixed Fixed::operator*(const Fixed &rhs) const {
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() * rhs.getFixedNumber()) * (1 << _scale)));
+	return result;
 }
 
-Fixed &Fixed::operator/(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() / rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;
+Fixed Fixed::operator/(const Fixed &rhs) const {
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() / rhs.getFixedNumber()) * (1 << _scale)));
+	return result;
 }
 
-Fixed &Fixed::operator-(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() - rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;}
+Fixed Fixed::operator-(const Fixed &rhs) const {
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() - rhs.getFixedNumber()) * (1 << _scale)));
+	return result;}
 
-Fixed &Fixed::operator+(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() + rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;}
+Fixed Fixed::operator+(const Fixed &rhs) const {
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() + rhs.getFixedNumber()) * (1 << _scale)));
+	return result;}
 
 bool Fixed::operator!=(const Fixed &rhs) const {
 	if (this->_rawBits != rhs.getRawBits())

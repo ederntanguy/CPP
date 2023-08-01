@@ -37,23 +37,27 @@ Fixed &Fixed::operator=(const Fixed &rhs) {
 	return *this;
 }
 
-Fixed &Fixed::operator*(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() * rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;
+Fixed Fixed::operator*(const Fixed &rhs) const{
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() * rhs.getFixedNumber()) * (1 << _scale)));
+	return result;
 }
 
-Fixed &Fixed::operator/(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() / rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;
+Fixed Fixed::operator/(const Fixed &rhs) const{
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() / rhs.getFixedNumber()) * (1 << _scale)));
+	return result;
 }
 
-Fixed &Fixed::operator-(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() - rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;}
+Fixed Fixed::operator-(const Fixed &rhs) const{
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() - rhs.getFixedNumber()) * (1 << _scale)));
+	return result;}
 
-Fixed &Fixed::operator+(const Fixed &rhs) {
-	this->setRawBits(static_cast<int>((this->getFixedNumber() + rhs.getFixedNumber()) * (1 << _scale)));
-	return *this;}
+Fixed Fixed::operator+(const Fixed &rhs) const{
+	Fixed result;
+	result.setRawBits(static_cast<int>((this->getFixedNumber() + rhs.getFixedNumber()) * (1 << _scale)));
+	return result;}
 
 bool Fixed::operator!=(const Fixed &rhs) const {
 	if (this->_rawBits != rhs.getRawBits())

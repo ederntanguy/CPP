@@ -19,10 +19,10 @@ public:
 	bool	operator<=(const Fixed &rhs) const;
 	bool	operator>=(const Fixed &rhs) const;
 	bool	operator!=(const Fixed &rhs) const;
-	Fixed	&operator+(const Fixed &rhs);
-	Fixed	&operator-(const Fixed &rhs);
-	Fixed	&operator/(const Fixed &rhs);
-	Fixed	&operator*(const Fixed &rhs);
+	Fixed	operator+(const Fixed &rhs) const;
+	Fixed	operator-(const Fixed &rhs) const;
+	Fixed	operator/(const Fixed &rhs) const;
+	Fixed	operator*(const Fixed &rhs) const;
 	Fixed	&operator++(int);
 	Fixed	&operator--(int);
 	Fixed	&operator++();
