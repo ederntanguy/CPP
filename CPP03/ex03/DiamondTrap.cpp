@@ -19,10 +19,14 @@ DiamondTrap::~DiamondTrap() {
 
 DiamondTrap &DiamondTrap::operator=(const DiamondTrap &rhs) {
 	this->name = rhs.name;
+	ClapTrap::name = rhs.name + "_clap_name";
+	FragTrap::hitPoints = rhs.hitPoints;
+	ScavTrap::energyPoints = rhs.energyPoints;
+	FragTrap::attackDamage = rhs.attackDamage;
 	return *this;
 }
 
 void DiamondTrap::whoAmI() {
-	std::cout << this->name << " " << ClapTrap::name << std::endl;
+	std::cout << "his own name : " << this->name << ", his subobject name : " << ClapTrap::name << std::endl;
 }
 
