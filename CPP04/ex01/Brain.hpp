@@ -9,12 +9,8 @@ public:
     Brain();
     Brain(const Brain &src);
     virtual ~Brain();
-
     Brain &operator=(const Brain &rhs);
-
-protected:
     std::string idea[100];
-
 };
 
 

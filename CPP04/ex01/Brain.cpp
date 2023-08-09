@@ -5,6 +5,7 @@ Brain::Brain() {
 }
 
 Brain::Brain(const Brain &src) {
+    *this = src;
     std::cout << "creation d'un Brain" << std::endl;
 }
 

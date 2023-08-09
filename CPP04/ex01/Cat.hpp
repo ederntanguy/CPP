@@ -5,7 +5,7 @@
 #include "Animal.hpp"
 #include "Brain.hpp"
 
-class Cat : public Animal {
+class Cat : public Animal{
 
 public:
     Cat();
@@ -14,6 +14,12 @@ public:
 
     Cat &operator=(const Cat &rhs);
     virtual void makeSound() const;
+    void addAThing(const std::string& value);
+    void showThings();
+
+private:
+    int _posBrainToChange;
+    Brain *_brain;
 
 };
 

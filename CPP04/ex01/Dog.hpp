@@ -13,6 +13,12 @@ public:
 
     Dog &operator=(const Dog &rhs);
     virtual void makeSound() const;
+    void addAThing(const std::string& value);
+    void showThings();
+
+private:
+    int _posBrainToChange;
+    Brain *_brain;
 };
 
 
