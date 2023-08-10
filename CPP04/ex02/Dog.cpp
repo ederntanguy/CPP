@@ -1,14 +1,14 @@
 #include "Dog.hpp"
 
 
-Dog::Dog() : Animal(), _posBrainToChange(0) {
+Dog::Dog() : AAnimal(), _posBrainToChange(0) {
     this->type = "Dog";
     this->_posBrainToChange = 0;
     std::cout << "creation d'un Dog" << std::endl;
     this->_brain = new Brain();
 }
 
-Dog::Dog(const Dog &src) : Animal(src) {
+Dog::Dog(const Dog &src) : AAnimal(src) {
     *this = src;
     this->_brain = src._brain;
     this->_posBrainToChange = src._posBrainToChange;

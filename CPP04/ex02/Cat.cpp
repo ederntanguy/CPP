@@ -1,13 +1,13 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal()  {
+Cat::Cat() : AAnimal()  {
     this->type = "Cat";
     this->_posBrainToChange = 0;
     std::cout << "creation d'un Cat" << std::endl;
     this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat &src) : Animal(src), _posBrainToChange(0)  {
+Cat::Cat(const Cat &src) : AAnimal(src), _posBrainToChange(0)  {
     *this = src;
     this->_brain = src._brain;
     this->_posBrainToChange = src._posBrainToChange;
