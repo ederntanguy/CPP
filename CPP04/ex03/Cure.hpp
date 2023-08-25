@@ -10,6 +10,8 @@ public:
     ~Cure();
 
     Cure &operator=(const Cure &rhs);
+
+	AMateria *clone() const;
 };
 
 
