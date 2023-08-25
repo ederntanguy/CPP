@@ -1,6 +1,4 @@
-#include "Bureaucrat.hpp"
-#include <iostream>
-#include <stdexcept>
+#include "all.hpp"
 
 int main ()
 {
@@ -10,7 +8,6 @@ int main ()
 	for (int i = 0; i < 10; ++i) {
 		jlp.incrementGrade();
 	}
-	std::cout << jlp << std::endl;
 	Bureaucrat herve("herve", 750);
 	Bureaucrat herve2("herve", -10);
 	Bureaucrat c91lp("cortex 91 les pyramindes", 145);
