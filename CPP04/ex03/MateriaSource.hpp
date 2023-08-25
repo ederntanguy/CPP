@@ -1,6 +1,7 @@
 #ifndef CPP04_MATERIASOURCE_HPP
 #define CPP04_MATERIASOURCE_HPP
-#include "IMateriaSource.hpp"
+
+#include "all.hpp"
 
 class MateriaSource : public IMateriaSource {
 public:
@@ -12,6 +13,9 @@ public:
 
 	void learnMateria(AMateria*);
 	AMateria* createMateria(std::string const & type);
+
+private:
+	AMateria *materiaType[4];
 };
 
 

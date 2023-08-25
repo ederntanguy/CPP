@@ -1,7 +1,7 @@
 #ifndef CPP04_CURE_HPP
 #define CPP04_CURE_HPP
 
-#include "AMateria.hpp"
+#include "all.hpp"
 
 class Cure : public AMateria {
 public:

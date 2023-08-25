@@ -1,7 +1,7 @@
 #ifndef CPP04_IMATERIASOURCE_HPP
 #define CPP04_IMATERIASOURCE_HPP
 
-#include "AMateria.hpp"
+#include "all.hpp"
 
 class IMateriaSource {
 public:

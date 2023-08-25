@@ -1,7 +1,7 @@
 #ifndef CPP04_ICE_HPP
 #define CPP04_ICE_HPP
 
-#include "AMateria.hpp"
+#include "all.hpp"
 
 class Ice : public AMateria{
 public:

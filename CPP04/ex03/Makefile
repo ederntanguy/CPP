@@ -1,6 +1,6 @@
 NAME		=	materia
 
-SRCS		=	main.cpp AMateria.cpp Character.cpp ICharacter.cpp
+SRCS		=	main.cpp AMateria.cpp Character.cpp ICharacter.cpp MateriaSource.cpp
 
 OBJDIR_SRCS		=	obj
 
