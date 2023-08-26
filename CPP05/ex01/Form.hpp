@@ -3,33 +3,42 @@
 
 #include "all.hpp"
 
+class Bureaucrat;
+
 class Form {
 public:
 	Form();
+	Form(std::string name, int gradeForSign, int gradeForExecute);
 	Form(const Form &src);
 	~Form();
 
 	Form &operator=(const Form &rhs);
 
+	void beSigned(Bureaucrat person);
+	std::string getName() const;
+	bool getSign() const;
+	int getGradeForSign() const;
+	int getGradeForExecute() const;
+	void setSign(bool value);
 	class GradeTooHighException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {
-			return "this grade gonna be to higher";
+			return "this grade is to higher";
 		}
 	};
 
 	class GradeTooLowException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {
-			return "this grade gonna be to lower";
+			return "this grade is to lower";
 		}
 	};
 
 private:
 	const std::string _name;
-	bool _sign;
-	int _gradeForSign;
 	int _gradeForExecute;
+	int _gradeForSign;
+	bool _sign;
 };
 
 std::ostream &operator<<(std::ostream &o, const Form &i);

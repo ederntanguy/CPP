@@ -3,6 +3,8 @@
 
 #include "all.hpp"
 
+class Form;
+
 class Bureaucrat {
 public:
 
@@ -31,6 +33,7 @@ public:
 	unsigned int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
+	void signForm(Form formulaire);
 
 private:
 	const std::string _name;

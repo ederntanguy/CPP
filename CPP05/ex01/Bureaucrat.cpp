@@ -66,3 +66,23 @@ void Bureaucrat::decrementGrade() {
 		std::cout << e.thereIsAnIssue() << std::endl;
 	}
 }
+
+void Bureaucrat::signForm(Form formulaire) {
+	if (formulaire.getSign())
+	{
+		std::cout << this->_name << " couldn't sign " << formulaire.getName() << " because the formulaire is already signed" << std::endl;
+		return;
+	}
+	if (static_cast<int>(this->_grade) > formulaire.getGradeForSign())
+	{
+		std::cout << this->_name << " couldn't sign " << formulaire.getName() << " because the bureaucrat is to null" << std::endl;
+		return;
+	}
+	std::cout << this->_name << " signed " << formulaire.getName() << std::endl;
+	formulaire.setSign(true);
+}
+
+std::ostream &operator<<(std::ostream &o, const Bureaucrat &i) {
+	o << i.getName() << " bureaucrat grade " << i.getGrade();
+	return o;
+}
