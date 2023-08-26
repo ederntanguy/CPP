@@ -8,13 +8,13 @@ class Bureaucrat;
 class Form {
 public:
 	Form();
-	Form(std::string name, int gradeForSign, int gradeForExecute);
+	Form(const std::string &name, int gradeForSign, int gradeForExecute);
 	Form(const Form &src);
 	~Form();
 
 	Form &operator=(const Form &rhs);
 
-	void beSigned(Bureaucrat person);
+	void beSigned(Bureaucrat &person);
 	std::string getName() const;
 	bool getSign() const;
 	int getGradeForSign() const;

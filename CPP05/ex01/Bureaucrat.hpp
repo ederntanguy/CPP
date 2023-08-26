@@ -23,7 +23,7 @@ public:
 	};
 
 	Bureaucrat();
-	Bureaucrat(const std::string& name, int grade);
+	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat(const Bureaucrat &src);
 	~Bureaucrat();
 
@@ -33,7 +33,7 @@ public:
 	unsigned int getGrade() const;
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(Form formulaire);
+	void signForm(Form &formulaire);
 
 private:
 	const std::string _name;

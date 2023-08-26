@@ -2,7 +2,7 @@
 
 Form::Form() : _name(""), _gradeForExecute(0), _gradeForSign(75), _sign(false) {}
 
-Form::Form(std::string name, int gradeForSign, int gradeForExecute) : _name(name), _sign(false) {
+Form::Form(const std::string &name, int gradeForSign, int gradeForExecute) : _name(name), _sign(false) {
 	try {
 		if (gradeForExecute > 150)
 		{
@@ -57,7 +57,7 @@ Form &Form::operator=(const Form &rhs) {
 	return *this;
 }
 
-void Form::beSigned(Bureaucrat person) {
+void Form::beSigned(Bureaucrat &person) {
 	try {
 		if (static_cast<int>(person.getGrade()) > this->_gradeForExecute)
 			throw Form::GradeTooLowException();
@@ -70,7 +70,7 @@ void Form::beSigned(Bureaucrat person) {
 		return;
 	}
 	this->_sign = true;
-	std::cout << "the form be signed" << std::endl;
+	std::cout << "the form be signed by " << person.getName() << std::endl;
 
 }
 

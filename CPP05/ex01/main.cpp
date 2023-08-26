@@ -3,7 +3,7 @@
 int main ()
 {
 	Bureaucrat jlp("Jean-Louis-Philippe", 10);
-	Form attestation("feur", 50 , 30);
+	Form attestation("sport", 50 , 30);
 	Form dedicace("pour mes fanes", 149 , 110);
 	Form bombenNucleaire("BOOM", 5 , 1);
 
