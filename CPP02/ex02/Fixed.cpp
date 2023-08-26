@@ -90,27 +90,27 @@ bool Fixed::operator==(const Fixed &rhs) const {
 		return true;
 	return false;}
 
-float Fixed::constMin(const Fixed &a, const Fixed &b) {
+const Fixed Fixed::constMin(const Fixed &a, const Fixed &b) {
 	if (a.getRawBits() > b.getRawBits())
-		return b.getFixedNumber();
-	return  a.getFixedNumber();
+		return b;
+	return  a;
 }
 
-float Fixed::min(const Fixed &a, const Fixed &b) {
+Fixed Fixed::min(const Fixed &a, const Fixed &b) {
 	if (a.getRawBits() > b.getRawBits())
-		return b.getFixedNumber();
-	return  a.getFixedNumber();
+		return b;
+	return  a;
 }
 
-float Fixed::constMax(const Fixed &a, const Fixed &b) {
+const Fixed Fixed::constMax(const Fixed &a, const Fixed &b) {
 	if (a.getRawBits() < b.getRawBits())
-		return b.getFixedNumber();
-	return  a.getFixedNumber();}
+		return b;
+	return  a;}
 
-float Fixed::max(const Fixed &a, const Fixed &b) {
+Fixed Fixed::max(const Fixed &a, const Fixed &b) {
 	if (a.getRawBits() < b.getRawBits())
-		return b.getFixedNumber();
-	return  a.getFixedNumber();}
+		return b;
+	return  a;}
 
 Fixed &Fixed::operator++(int) {
 	Fixed &oldValue = *this;

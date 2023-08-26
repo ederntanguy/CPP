@@ -27,10 +27,10 @@ public:
 	Fixed	&operator--(int);
 	Fixed	&operator++();
 	Fixed	&operator--();
-	static float	min(const Fixed &a, const Fixed &b);
-	static float	constMin(const Fixed &a, const Fixed &b);
-	static float	max(const Fixed &a, const Fixed &b);
-	static float	constMax(const Fixed &a, const Fixed &b);
+	static Fixed	min(const Fixed &a, const Fixed &b);
+	static const Fixed	constMin(const Fixed &a, const Fixed &b);
+	static Fixed	max(const Fixed &a, const Fixed &b);
+	static const Fixed	constMax(const Fixed &a, const Fixed &b);
 
 
 
