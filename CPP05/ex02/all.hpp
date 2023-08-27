@@ -18,5 +18,6 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include <fstream>
 
 # endif //CPP05_ALL_HPP

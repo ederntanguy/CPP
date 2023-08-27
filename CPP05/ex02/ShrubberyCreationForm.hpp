@@ -3,14 +3,16 @@
 
 #include "all.hpp"
 
-class ShrubberyCreationForm : public AForm{
+class ShrubberyCreationForm : public AForm {
 public:
 	ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string &name, int gradeForSign, int gradeForExecute, const std::string &target);
+	ShrubberyCreationForm(const std::string &name, const std::string &target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &src);
 	~ShrubberyCreationForm();
 
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
+
+	void execute(Bureaucrat const &executor) const;
 
 private:
 	const std::string _target;

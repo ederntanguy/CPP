@@ -14,6 +14,7 @@ public:
 
 	AForm &operator=(const AForm &rhs);
 
+	virtual void execute(Bureaucrat const & executor) const = 0;
 	void beSigned(Bureaucrat &person);
 	std::string getName() const;
 	bool getSign() const;
