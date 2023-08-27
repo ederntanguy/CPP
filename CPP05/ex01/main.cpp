@@ -9,13 +9,13 @@ int main ()
 
 	std::cout << "\n" << dedicace << std::endl;
 
-	attestation.beSigned(jlp);
+//	attestation.beSigned(jlp);
 	jlp.signForm(attestation);
 	jlp.signForm(attestation);
 	jlp.signForm(bombenNucleaire);
 	jlp.signForm(dedicace);
-	bombenNucleaire.beSigned(jlp);
-	dedicace.beSigned(jlp);
+//	bombenNucleaire.beSigned(jlp);
+//	dedicace.beSigned(jlp);
 
 	std::cout << "\n" << dedicace << std::endl;
 

@@ -58,8 +58,11 @@ Form &Form::operator=(const Form &rhs) {
 }
 
 void Form::beSigned(Bureaucrat &person) {
-	if (person.getGrade() > this->_gradeForSign)
+	if (static_cast<int>(person.getGrade()) > this->_gradeForSign)
+	{
+		std::cout << "test " << std::endl;
 		throw GradeTooLowException();
+	}
 	this->_sign = true;
 }
 

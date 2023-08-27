@@ -75,7 +75,7 @@ void Bureaucrat::signForm(AForm &formulaire) {
 		formulaire.beSigned(*this);
 		std::cout << this->_name << " signed " << formulaire.getName();
 	}
-	catch (GradeTooLowException &e) {
+	catch (AForm::GradeTooLowException &e) {
 		std::cout << "couldn’t sign " << formulaire.getName() << " because the bureaucrat level is to low" << std::endl;
 	}
 }

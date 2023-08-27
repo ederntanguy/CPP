@@ -83,10 +83,6 @@ int AForm::getGradeForExecute() const {
 	return this->_gradeForExecute;
 }
 
-void AForm::setSign(bool value) {
-	this->_sign = value;
-}
-
 std::ostream &operator<<(std::ostream &o, const AForm &i) {
 	o << "the formulaire " << i.getName() << " need a grade " << i.getGradeForSign()
 	  << " or highter to be sign, and need a grade " << i.getGradeForExecute()
