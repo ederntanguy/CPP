@@ -19,7 +19,6 @@ public:
 	bool getSign() const;
 	int getGradeForSign() const;
 	int getGradeForExecute() const;
-	void setSign(bool value);
 	class GradeTooHighException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {

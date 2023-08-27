@@ -1,5 +1,9 @@
 #include "AForm.hpp"
 
+#include <iostream>
+
+#include "Bureaucrat.hpp"
+
 AForm::AForm() : _name(""), _gradeForExecute(0), _gradeForSign(75), _sign(false) {}
 
 AForm::AForm(const std::string &name, int gradeForSign, int gradeForExecute) : _name(name), _sign(false) {
@@ -58,20 +62,9 @@ AForm &AForm::operator=(const AForm &rhs) {
 }
 
 void AForm::beSigned(Bureaucrat &person) {
-	try {
-		if (static_cast<int>(person.getGrade()) > this->_gradeForExecute)
-			throw AForm::GradeTooLowException();
-	}
-	catch (AForm::GradeTooLowException &e) {
-		std::cout << "shit " << person.getName() << " not grade enough" << std::endl;
-	}
-	if (this->_sign) {
-		std::cout << "the document is allready signed" << std::endl;
-		return;
-	}
+	if (person.getGrade() > this->_gradeForSign)
+		throw GradeTooLowException();
 	this->_sign = true;
-	std::cout << "the form be signed by " << person.getName() << std::endl;
-
 }
 
 std::string AForm::getName() const {

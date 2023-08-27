@@ -1,11 +1,11 @@
 #ifndef CPP05_AFORM_HPP
 #define CPP05_AFORM_HPP
 
-#include "all.hpp"
+#include <string>
 
 class Bureaucrat;
 
-class AForm{
+class AForm {
 public:
 	AForm();
 	AForm(const std::string &name, int gradeForSign, int gradeForExecute);
@@ -20,17 +20,17 @@ public:
 	bool getSign() const;
 	int getGradeForSign() const;
 	int getGradeForExecute() const;
-	void setSign(bool value);
+
 	class GradeTooHighException : std::exception {
 	public:
-		virtual const char * thereIsAnIssue() {
+		virtual const char *thereIsAnIssue() {
 			return "this grade is to higher";
 		}
 	};
 
 	class GradeTooLowException : std::exception {
 	public:
-		virtual const char * thereIsAnIssue() {
+		virtual const char *thereIsAnIssue() {
 			return "this grade is to lower";
 		}
 	};

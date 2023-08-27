@@ -1,8 +1,11 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name(), _grade(75) {
+#include <iostream>
+#include <string>
 
-}
+#include "AForm.hpp"
+
+Bureaucrat::Bureaucrat() : _name(), _grade(75) {}
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 	try {
@@ -68,18 +71,13 @@ void Bureaucrat::decrementGrade() {
 }
 
 void Bureaucrat::signForm(AForm &formulaire) {
-	if (formulaire.getSign())
-	{
-		std::cout << this->_name << " couldn't sign " << formulaire.getName() << " because the formulaire is already signed" << std::endl;
-		return;
+	try {
+		formulaire.beSigned(*this);
+		std::cout << this->_name << " signed " << formulaire.getName();
 	}
-	if (static_cast<int>(this->_grade) > formulaire.getGradeForSign())
-	{
-		std::cout << this->_name << " couldn't sign " << formulaire.getName() << " because the bureaucrat is to null" << std::endl;
-		return;
+	catch (GradeTooLowException &e) {
+		std::cout << "couldn’t sign " << formulaire.getName() << " because the bureaucrat level is to low" << std::endl;
 	}
-	std::cout << this->_name << " signed " << formulaire.getName() << std::endl;
-	formulaire.setSign(true);
 }
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &i) {

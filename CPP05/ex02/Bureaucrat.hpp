@@ -1,7 +1,8 @@
 #ifndef CPP05_BUREAUCRAT_HPP
 #define CPP05_BUREAUCRAT_HPP
 
-#include "all.hpp"
+#include <exception>
+#include <string>
 
 class AForm;
 

@@ -58,20 +58,9 @@ Form &Form::operator=(const Form &rhs) {
 }
 
 void Form::beSigned(Bureaucrat &person) {
-	try {
-		if (static_cast<int>(person.getGrade()) > this->_gradeForExecute)
-			throw Form::GradeTooLowException();
-	}
-	catch (Form::GradeTooLowException &e) {
-		std::cout << "shit " << person.getName() << " not grade enough" << std::endl;
-	}
-	if (this->_sign) {
-		std::cout << "the document is allready signed" << std::endl;
-		return;
-	}
+	if (person.getGrade() > this->_gradeForSign)
+		throw GradeTooLowException();
 	this->_sign = true;
-	std::cout << "the form be signed by " << person.getName() << std::endl;
-
 }
 
 std::string Form::getName() const {
@@ -88,10 +77,6 @@ int Form::getGradeForSign() const {
 
 int Form::getGradeForExecute() const {
 	return this->_gradeForExecute;
-}
-
-void Form::setSign(bool value) {
-	this->_sign = value;
 }
 
 std::ostream &operator<<(std::ostream &o, const Form &i) {
