@@ -9,7 +9,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap &src) : ClapTrap(src), FragTrap(src),
 	*this = src;
 }
 
-DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), name(name) {
+DiamondTrap::DiamondTrap(const std::string &name) : ClapTrap(name + "_clap_name"), FragTrap(name + "_clap_name"), ScavTrap(name + "_clap_name") , name(name) {
 	std::cout << "le DiamondTrap " << name << "a bien ete cree" << std::endl;
 }
 
