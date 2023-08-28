@@ -1,7 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
 #include <cstdlib>
-#include <ctime>
 #include <iostream>
 
 #include "Bureaucrat.hpp"
@@ -27,17 +26,12 @@ RobotomyRequestForm::operator=(const RobotomyRequestForm &rhs) {
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
-	srand(time(NULL));
-	try {
-		if (executor.getGrade() > this->_gradeForExecute)
-			throw GradeTooLowException();
-		srand(time(NULL));
-		if (rand() % 2)
-			std::cout << "BIP BIP BOOP BOOP PCHHHHHHIIIIT . . . . . . Mission success " << this->_target << " have been robotomised" << std::endl;
-		else
-			std::cout << "BIP BIP BOOP BOOP PCHHHHHHIIIIT . . . . . . Mission Failed " << this->_target << " haven't been robotomised" << std::endl;
-	}
-	catch (GradeTooLowException &e) {
-		std::cout << "the Bureaucrat " << executor.getName() << " can't execute " << this->_name << std::endl;
-	}
+	if (!this->_sign)
+		throw DocuementNotSigned();
+	if (static_cast<int>(executor.getGrade()) > this->_gradeForExecute)
+		throw GradeTooLowException();
+	if (rand() % 2)
+		std::cout << "BIP BIP BOOP BOOP PCHHHHHHIIIIT . . . . . . Mission success " << this->_target << " have been robotomised" << std::endl;
+	else
+		std::cout << "BIP BIP BOOP BOOP PCHHHHHHIIIIT . . . . . . Mission Failed " << this->_target << " haven't been robotomised" << std::endl;
 }

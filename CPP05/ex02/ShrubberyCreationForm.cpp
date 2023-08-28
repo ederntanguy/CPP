@@ -26,10 +26,7 @@ ShrubberyCreationForm::operator=(const ShrubberyCreationForm &rhs) {
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	if (!this->_sign)
-	{
-		std::cout << "The document is not signed" << std::endl;
-		return;
-	}
+		throw DocuementNotSigned();
 	try {
 		if (static_cast<int>(executor.getGrade()) > this->_gradeForExecute)
 			throw GradeTooLowException();
@@ -57,6 +54,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 			outputFile << "           _       /\\. \\_/ /\\\n";
 			outputFile << "            `---__/|_\\\\   //|  __\n";
 			outputFile << "                  `-'  `-'`-'-'";
+			std::cout << "The Shrubbery was creat" << std::endl;
 		}
 		else {
 			std::cout << "can't open or creat " << shrubberyFile << " for draw a amazing shrubbery" << std::endl;

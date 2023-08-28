@@ -10,7 +10,7 @@ public:
 	AForm();
 	AForm(const std::string &name, int gradeForSign, int gradeForExecute);
 	AForm(const AForm &src);
-	~AForm();
+	virtual ~AForm();
 
 	AForm &operator=(const AForm &rhs);
 
@@ -32,6 +32,13 @@ public:
 	public:
 		virtual const char *thereIsAnIssue() {
 			return "this grade is to lower";
+		}
+	};
+
+	class DocuementNotSigned : std::exception {
+	public:
+		virtual const char *thereIsAnIssue() {
+			return "The document is not signed";
 		}
 	};
 

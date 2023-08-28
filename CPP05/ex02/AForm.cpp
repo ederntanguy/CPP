@@ -62,7 +62,7 @@ AForm &AForm::operator=(const AForm &rhs) {
 }
 
 void AForm::beSigned(Bureaucrat &person) {
-	if (person.getGrade() > this->_gradeForSign)
+	if (static_cast<int>(person.getGrade()) > this->_gradeForSign)
 		throw GradeTooLowException();
 	this->_sign = true;
 }
@@ -86,7 +86,7 @@ int AForm::getGradeForExecute() const {
 std::ostream &operator<<(std::ostream &o, const AForm &i) {
 	o << "the formulaire " << i.getName() << " need a grade " << i.getGradeForSign()
 	  << " or highter to be sign, and need a grade " << i.getGradeForExecute()
-	  << " or highter to be execute, and the sign cas is actually ";
+	  << " or highter to be execute, and the form is actually ";
 	if (i.getSign())
 		std::cout << "signed" << std::endl;
 	else

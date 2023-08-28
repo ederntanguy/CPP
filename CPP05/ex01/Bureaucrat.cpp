@@ -70,7 +70,7 @@ void Bureaucrat::decrementGrade() {
 void Bureaucrat::signForm(Form &formulaire) {
 	try {
 		formulaire.beSigned(*this);
-		std::cout << this->_name << " signed " << formulaire.getName();
+		std::cout << this->_name << " signed " << formulaire.getName() << std::endl;
 	}
 	catch (Form::GradeTooLowException &e) {
 		std::cout << "couldn’t sign " << formulaire.getName() << " because the bureaucrat level is to low" << std::endl;

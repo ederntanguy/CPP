@@ -10,7 +10,7 @@ public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string &target);
 	ShrubberyCreationForm(const ShrubberyCreationForm &src);
-	~ShrubberyCreationForm();
+	virtual ~ShrubberyCreationForm();
 
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &rhs);
 
