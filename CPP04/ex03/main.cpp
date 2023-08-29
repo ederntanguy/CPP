@@ -5,6 +5,7 @@
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
 #include "Ice.hpp"
+#include "Character.hpp"
 #include "Cure.hpp"
 #include "AMateria.hpp"
 #include "MateriaSource.hpp"
@@ -26,5 +27,5 @@ int main()
 //	delete bob;
 //	delete me;
 //	delete src;
-//	return 0;
+	return 0;
 }

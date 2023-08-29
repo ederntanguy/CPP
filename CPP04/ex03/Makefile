@@ -1,6 +1,6 @@
 NAME		=	materia
 
-SRCS		=	Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
+SRCS		=	Character.cpp AMateria.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
 
 OBJDIR_SRCS		=	obj
 

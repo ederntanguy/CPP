@@ -23,5 +23,6 @@ AMateria &AMateria::operator=(const AMateria &rhs)
 
 void AMateria::use(ICharacter &target)
 {
+	(void)target;
 	std::cout << "Test" << std::endl;
 }
