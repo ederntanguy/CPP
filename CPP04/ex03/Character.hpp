@@ -1,7 +1,9 @@
 #ifndef CPP04_CHARACTER_HPP
 #define CPP04_CHARACTER_HPP
 
-#include "all.hpp"
+#include <string>
+
+#include "ICharacter.hpp"
 
 class Character : public ICharacter{
 public:
@@ -10,13 +12,15 @@ public:
     Character(const Character &src);
     ~Character();
 
-	const std::string const &getName() const;
+	const std::string &getName() const;
 	void equip(AMateria *m);
 	void unequip(int idx);
     void use(int idx, ICharacter& target);
-    Character &operator=(const Character rhs);
+//	AMateria clone();
+
+	Character &operator=(const Character rhs);
 private:
-	AMateria *inventory[4];
+	std::string _name;
 };
 
 

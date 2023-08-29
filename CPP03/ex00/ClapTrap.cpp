@@ -33,7 +33,7 @@ void ClapTrap::attack(const std::string &target) {
 	}
 	else if (this->_hitPoints <= 0)
 	{
-		std::cout << "Malheureusement " << this->_name << " est mort, il ne peut plus attquer" << std::endl;
+		std::cout << "Malheureusement " << this->_name << " est mort, il ne peut plus attaquer" << std::endl;
 		return;
 	}
 	this->_energyPoints--;

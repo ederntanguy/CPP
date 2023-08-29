@@ -1,7 +1,7 @@
 #ifndef CPP04_MATERIASOURCE_HPP
 #define CPP04_MATERIASOURCE_HPP
 
-#include "all.hpp"
+#include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource {
 public:
@@ -11,7 +11,7 @@ public:
 
 	MateriaSource &operator=(const MateriaSource &rhs);
 
-	void learnMateria(AMateria*);
+	void learnMateria(AMateria *type);
 	AMateria* createMateria(std::string const & type);
 
 private:
