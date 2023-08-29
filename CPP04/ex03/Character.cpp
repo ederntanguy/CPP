@@ -7,7 +7,7 @@
 
 Character::Character() : _name("") {}
 
-Character::Character(std::string &name) : _name(name) {}
+Character::Character(const std::string &name) : _name(name) {}
 
 Character::Character(const Character &src)
 {
