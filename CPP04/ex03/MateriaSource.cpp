@@ -2,6 +2,26 @@
 
 #include "AMateria.hpp"
 
+MateriaSource::MateriaSource() {}
+
+MateriaSource::MateriaSource(const MateriaSource &src)
+{
+	*this = src;
+}
+
+MateriaSource::~MateriaSource() {}
+
+MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
+{
+	int i = 0;
+	while (i < 4)
+	{
+		this->materiaType[i] = rhs.materiaType[i];
+		i++;
+	}
+	return *this;
+}
+
 void MateriaSource::learnMateria(AMateria *type)
 {
 	(void)type;

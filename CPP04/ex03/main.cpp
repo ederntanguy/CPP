@@ -5,7 +5,6 @@
 #include "IMateriaSource.hpp"
 #include "ICharacter.hpp"
 #include "Ice.hpp"
-#include "Character.hpp"
 #include "Cure.hpp"
 #include "AMateria.hpp"
 #include "MateriaSource.hpp"
