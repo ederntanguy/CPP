@@ -43,7 +43,7 @@ void MateriaSource::learnMateria(AMateria *type)
 		return;
 	materiaType[count] = type;
 }
-#include <iostream>
+
 AMateria *MateriaSource::createMateria(const std::string &type)
 {
 	int i = 0;
