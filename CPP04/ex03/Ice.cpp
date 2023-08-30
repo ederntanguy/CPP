@@ -1,5 +1,8 @@
 #include "Ice.hpp"
 
+#include <iostream>
+
+
 Ice::Ice() : AMateria("ice") {}
 
 Ice::Ice(const Ice &src) : AMateria(src)
@@ -18,4 +21,8 @@ Ice &Ice::operator=(const Ice &rhs)
 AMateria *Ice::clone() const
 {
 	return new Ice();
+}
+
+void Ice::use(ICharacter &target) {
+	std::cout << "Ice : \"* shoots an ice bolt at " << target.getName() << " *\"" << std::endl;
 }

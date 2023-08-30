@@ -55,14 +55,9 @@ void Character::unequip(int idx)
 
 void Character::use(int idx, ICharacter &target)
 {
-	(void)idx;
-	(void)target;
+	if (idx < 4 && inventory[idx] != NULL)
+		inventory[idx]->use(target);
 }
-
-//AMateria Character::clone()
-//{
-//	return ;
-//}
 
 Character &Character::operator=(const Character rhs)
 {

@@ -22,9 +22,5 @@ AMateria &AMateria::operator=(const AMateria &rhs)
 	return *this;
 }
 
-void AMateria::use(ICharacter &target)
-{
-	(void)target;
-	std::cout << "Test" << std::endl;
-}
+
 
