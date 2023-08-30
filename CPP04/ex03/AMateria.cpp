@@ -1,7 +1,5 @@
 #include "AMateria.hpp"
 
-#include <iostream>
-
 AMateria::AMateria(const std::string &type) : _type(type){}
 
 AMateria::AMateria(const AMateria &src)

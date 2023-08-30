@@ -46,8 +46,6 @@ void Character::equip(AMateria *m)
 	inventory[i] = m;
 }
 
-#include <iostream>
-
 void Character::unequip(int idx)
 {
 	if (idx < 4 && inventory[idx] != NULL)
