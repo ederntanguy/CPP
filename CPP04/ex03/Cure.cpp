@@ -1,6 +1,6 @@
 #include "Cure.hpp"
 
-Cure::Cure() : AMateria("Cure") {}
+Cure::Cure() : AMateria("cure") {}
 
 Cure::Cure(const Cure &src) : AMateria(src)
 {
@@ -17,5 +17,5 @@ Cure &Cure::operator=(const Cure &rhs)
 
 AMateria *Cure::clone() const
 {
-	return NULL;
+	return new Cure();
 }

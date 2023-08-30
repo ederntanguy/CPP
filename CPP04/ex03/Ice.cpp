@@ -17,5 +17,5 @@ Ice &Ice::operator=(const Ice &rhs)
 
 AMateria *Ice::clone() const
 {
-	return NULL;
+	return new Ice();
 }

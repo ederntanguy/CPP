@@ -7,7 +7,7 @@ OBJDIR_SRCS		=	obj
 OBJS		=	${addprefix ${OBJDIR_SRCS}/,${SRCS:.cpp=.o}}
 
 CC			=	c++
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g
 
 RM			=	rm -f
 

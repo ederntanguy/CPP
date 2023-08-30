@@ -5,9 +5,19 @@
 #include "Ice.hpp"
 #include "Cure.hpp"
 
-Character::Character() : _name("") {}
+Character::Character() : _name("") {
+	inventory[0] = NULL;
+	inventory[1] = NULL;
+	inventory[2] = NULL;
+	inventory[3] = NULL;
+}
 
-Character::Character(const std::string &name) : _name(name) {}
+Character::Character(const std::string &name) : _name(name) {
+	inventory[0] = NULL;
+	inventory[1] = NULL;
+	inventory[2] = NULL;
+	inventory[3] = NULL;
+}
 
 Character::Character(const Character &src)
 {
@@ -23,12 +33,24 @@ const std::string &Character::getName() const
 
 void Character::equip(AMateria *m)
 {
-	(void)m;
+	int i = 0;
+	while (inventory[i] != NULL)
+		i++;
+	if (i >= 4)
+		return;
+	inventory[i] = m;
 }
+
+#include <iostream>
 
 void Character::unequip(int idx)
 {
-	(void)idx;
+	if (idx < 4 && inventory[idx] != NULL)
+	{
+		std::cout << "ici" << std::endl;
+		delete inventory[idx];
+		inventory[idx] = NULL;
+	}
 }
 
 void Character::use(int idx, ICharacter &target)

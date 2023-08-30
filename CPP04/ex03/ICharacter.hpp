@@ -8,7 +8,6 @@ class AMateria;
 
 class ICharacter {
 protected:
-//	virtual AMateria clone() = 0;
 	AMateria *inventory[4];
 
 public:

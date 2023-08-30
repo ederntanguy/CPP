@@ -9,6 +9,7 @@ AMateria::AMateria(const AMateria &src)
 	*this = src;
 }
 
+AMateria::~AMateria() {}
 
 std::string const &AMateria::getType() const
 {
@@ -26,3 +27,4 @@ void AMateria::use(ICharacter &target)
 	(void)target;
 	std::cout << "Test" << std::endl;
 }
+
