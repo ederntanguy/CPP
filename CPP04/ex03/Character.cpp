@@ -24,7 +24,12 @@ Character::Character(const Character &src)
 	*this = src;
 }
 
-Character::~Character() {}
+Character::~Character() {
+	for (int i = 0; i < 4; ++i)
+	{
+		delete inventory[i];
+	}
+}
 
 const std::string &Character::getName() const
 {
@@ -46,11 +51,7 @@ void Character::equip(AMateria *m)
 void Character::unequip(int idx)
 {
 	if (idx < 4 && inventory[idx] != NULL)
-	{
-		std::cout << "ici" << std::endl;
-		delete inventory[idx];
 		inventory[idx] = NULL;
-	}
 }
 
 void Character::use(int idx, ICharacter &target)

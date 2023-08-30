@@ -14,7 +14,14 @@ MateriaSource::MateriaSource(const MateriaSource &src)
 	*this = src;
 }
 
-MateriaSource::~MateriaSource() {}
+MateriaSource::~MateriaSource() {
+	int i = 0;
+	while (i < 4 && materiaType[i] != NULL)
+	{
+		delete materiaType[i];
+		i++;
+	}
+}
 
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
@@ -43,10 +50,7 @@ AMateria *MateriaSource::createMateria(const std::string &type)
 	while (materiaType[i] != NULL)
 	{
 		if (materiaType[i]->getType() == type)
-		{
-			materiaType[i]->clone();
 			return materiaType[i]->clone();
-		}
 		i++;
 	}
 	return NULL;
