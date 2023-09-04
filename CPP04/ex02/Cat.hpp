@@ -2,7 +2,7 @@
 #define EX00_CAT_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 class Cat : public AAnimal{

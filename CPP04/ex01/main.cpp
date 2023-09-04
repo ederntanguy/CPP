@@ -3,7 +3,6 @@
 #include "Cat.hpp"
 
 int main() {
-//    Animal *goodAnimal[21];
     Animal *goodAnimal[20];
     for (int i = 0; i < 10; ++i) {
         goodAnimal[i] = new Cat();
@@ -11,7 +10,6 @@ int main() {
     for (int i = 10; i < 20; ++i) {
         goodAnimal[i] = new Dog();
     }
-//    goodAnimal[20] = new Animal();
     static_cast<Cat *>(goodAnimal[0])->addAThing("fsdadf");
     static_cast<Cat *>(goodAnimal[0])->addAThing("hngbk");
     static_cast<Cat *>(goodAnimal[0])->addAThing("fsfdsdadf");

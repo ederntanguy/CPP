@@ -2,7 +2,7 @@
 #define EX00_DOG_HPP
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 
 class Dog : public AAnimal{
