@@ -37,7 +37,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 void MateriaSource::learnMateria(AMateria *type)
 {
 	static int count = 0;
-	while (materiaType[count] != NULL)
+	while (count < 4 && materiaType[count] != NULL)
 		count++;
 	if (count >= 4)
 		return;

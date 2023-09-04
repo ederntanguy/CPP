@@ -39,7 +39,7 @@ const std::string &Character::getName() const
 void Character::equip(AMateria *m)
 {
 	int i = 0;
-	while (inventory[i] != NULL)
+	while (i < 4 && inventory[i] != NULL)
 		i++;
 	if (i >= 4)
 		return;
@@ -63,6 +63,7 @@ Character &Character::operator=(const Character rhs)
 	int i = 0;
 	while (i < 4)
 	{
+		delete this->inventory[i];
 		this->inventory[i] = rhs.inventory[i];
 		i++;
 	}
