@@ -15,6 +15,11 @@
 
 int ft_atoi(std::string val, int &notVal)
 {
+	if (val.length() > 11)
+	{
+		notVal = 0;
+		return 0;
+	}
 	int j = 0;
 	while (val[j] == '+' || val[j] == '+')
 		j++;
