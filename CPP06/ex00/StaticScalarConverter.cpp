@@ -4,8 +4,6 @@
 
 #include "ownFonction.hpp"
 
-
-
 StaticScalarConverter::StaticScalarConverter() : _value(0) {}
 
 StaticScalarConverter::StaticScalarConverter(std::string value) : _value(value) {}
@@ -35,9 +33,10 @@ void StaticScalarConverter::convert(std::string &value)
 		int intValue = atoi(value.c_str());
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: " << intValue << std::endl;
-		std::cout << "float: " << static_cast<float>(intValue) << std::endl;
-		std::cout << "float: " << static_cast<double>(intValue) << std::endl;
+		std::cout << "float: " << static_cast<float>(intValue) << ".0f" << std::endl;
+		std::cout << "float: " << static_cast<double>(intValue) << ".0" << std::endl;
 	}
+	atof()
 }
 
 StaticScalarConverter &

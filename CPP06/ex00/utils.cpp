@@ -11,19 +11,18 @@
 /* ************************************************************************** */
 
 #include <string>
+#include <iostream>
 
 int ft_atoi(std::string val, int &notVal)
 {
-	if (val.length() > 11)
+	int j = 0;
+	while (val[j] == '+' || val[j] == '+')
+		j++;
+	for (int j = 0; j < static_cast<int>(val.length()); ++j)
 	{
-		notVal = 1;
-		return 0;
-	}
-	for (int i = 0; i < static_cast<int>(val.length()); ++i)
-	{
-		if (!((i == 0 && (val[i] == '-' || val[i] == '+')) || isdigit(val[i])))
+		if (isdigit(val[j]))
 		{
-			notVal = 1;
+			notVal = 0;
 			return 0;
 		}
 	}
@@ -43,7 +42,45 @@ int ft_atoi(std::string val, int &notVal)
 	}
 	if (res < -2147483648 || res > 2147483647)
 	{
-		notVal = 1;
+		notVal = 0;
+		return 0;
+	}
+	return res * neg;
+}
+
+int ft_atof(std::string val, int &notVal)
+{
+	int countPoint = 0;
+	int j = 0;
+	while (val[j] == '+' || val[j] == '+')
+		j++;
+	for (int j = 0; j < static_cast<int>(val.length()); ++j)
+	{
+		if (!(isdigit(val[j]) || (val[j] == '.' && countPoint == 0)))
+		{
+			notVal = 0;
+			return 0;
+		}
+		if (val[j] == '.')
+			countPoint++;
+	}
+	int i = 0;
+	int neg = 1;
+	long res;
+	if (val[i] == '+' || val[i] == '-')
+	{
+		if (val[i] == '-')
+			neg *= -1;
+		i++;
+	}
+	while (i < static_cast<int>(val.length()) && val[i])
+	{
+		res = res * 10 + val[i];
+		i++;
+	}
+	if (res < -2147483648 || res > 2147483647)
+	{
+		notVal = 0;
 		return 0;
 	}
 	return res * neg;
