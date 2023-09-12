@@ -15,6 +15,8 @@
 #include <string>
 
 int ft_atoi(std::string val, int &notVal);
+double ft_atod(std::string val, int &notVal);
+float ft_atof(std::string val, int &notVal);
 int charShwoable(std::string value);
 
 # endif //CPP06_OWNFONCTION_HPP
