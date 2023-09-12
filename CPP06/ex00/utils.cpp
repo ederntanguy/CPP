@@ -59,9 +59,9 @@ double ft_atod(std::string val, int &notVal)
 {
 	int countPoint = 0;
 	int j = 0;
-	while (j < static_cast<int>(val.length()) && (val[j] == '+' || val[j] == '-'))
+	if (j < static_cast<int>(val.length()) && (val[j] == '+' || val[j] == '-'))
 		j++;
-	for (int j = 0; j < static_cast<int>(val.length()); ++j)
+	while (j < static_cast<int>(val.length()))
 	{
 		if (!(isdigit(val[j]) || (val[j] == '.' && countPoint == 0)))
 		{
@@ -70,6 +70,7 @@ double ft_atod(std::string val, int &notVal)
 		}
 		if (val[j] == '.')
 			countPoint++;
+		j++;
 	}
 	int i = 0;
 	int neg = 1;
@@ -80,6 +81,7 @@ double ft_atod(std::string val, int &notVal)
 			neg *= -1;
 		i++;
 	}
+
 	int afterPoint = 0;
 	while (i < static_cast<int>(val.length()) && val[i])
 	{
@@ -90,7 +92,7 @@ double ft_atod(std::string val, int &notVal)
 		}
 		if (afterPoint == 0)
 		{
-			if ((res * 10 +(val[i] - '0')) * neg < DBL_MIN || ( res * 10 + (val[i] - '0')) * neg > DBL_MAX)
+			if ((res * 10 +(val[i] - '0')) * neg < -DBL_MAX || ( res * 10 + (val[i] - '0')) * neg > DBL_MAX)
 			{
 				notVal = 0;
 				return 0;
@@ -99,7 +101,7 @@ double ft_atod(std::string val, int &notVal)
 		}
 		else
 		{
-			if ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg < DBL_MIN
+			if ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg < -DBL_MAX
 			|| ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg > DBL_MAX))
 			{
 				notVal = 0;
@@ -118,9 +120,9 @@ float ft_atof(std::string val, int &notVal)
 {
 	int countPoint = 0;
 	int j = 0;
-	while (j < static_cast<int>(val.length()) && (val[j] == '+' || val[j] == '-'))
+	if (j < static_cast<int>(val.length()) && (val[j] == '+' || val[j] == '-'))
 		j++;
-	for (int j = 0; j < static_cast<int>(val.length()); ++j)
+	while (j < static_cast<int>(val.length()))
 	{
 		if (!(isdigit(val[j]) || (val[j] == '.' && countPoint == 0) || (j + 1 == static_cast<int>(val.length()) && val[j] == 'f')))
 		{
@@ -129,6 +131,7 @@ float ft_atof(std::string val, int &notVal)
 		}
 		if (val[j] == '.')
 			countPoint++;
+		j++;
 	}
 	int i = 0;
 	int neg = 1;
@@ -149,7 +152,7 @@ float ft_atof(std::string val, int &notVal)
 		}
 		if (afterPoint == 0)
 		{
-			if ((res * 10 + (val[i] - '0')) * neg < FLT_MIN || ( res * 10 + (val[i] - '0')) * neg > FLT_MAX)
+			if ((res * 10 + (val[i] - '0')) * neg < -FLT_MAX || ( res * 10 + (val[i] - '0')) * neg > FLT_MAX)
 			{
 				notVal = 0;
 				return 0;
@@ -158,7 +161,7 @@ float ft_atof(std::string val, int &notVal)
 		}
 		else
 		{
-			if ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg < FLT_MIN
+			if ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg < -FLT_MAX
 			|| ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg > FLT_MAX))
 
 			{

@@ -43,7 +43,6 @@ void StaticScalarConverter::convert(std::string &value)
 	{
 
 		double intValue = ft_atod(value, notVal);
-		std::cout << intValue << std::endl;
 		std::cout << "char: Non displayable" << std::endl;
 		std::cout << "int: " << static_cast<int>(intValue) << std::endl;
 		std::cout << "float: " << static_cast<float>(intValue) << "f" << std::endl;
