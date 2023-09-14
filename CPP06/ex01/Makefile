@@ -1,6 +1,6 @@
-NAME		=	convert
+NAME		=	serializer
 
-SRCS		=	StaticScalarCouveter.cpp main.cpp
+SRCS		=	main.cpp Serializer.cpp
 
 OBJDIR_SRCS		=	obj
 
