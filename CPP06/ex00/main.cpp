@@ -18,7 +18,7 @@ int main(int argc, char **argv) {
 	if (argc != 2)
 		return 0;
 	StaticScalarConverter a;
-	std::string tmp(argv[1]);
+	std::string tmp = argv[1];
 	a.convert(tmp);
 	return 0;
 }

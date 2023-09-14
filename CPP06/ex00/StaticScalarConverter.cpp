@@ -17,7 +17,27 @@ StaticScalarConverter::~StaticScalarConverter() {}
 
 void StaticScalarConverter::convert(std::string &value)
 {
-
+	if (value == "nan" || value == "nanf" || value == "+inf" || value == "+inff"
+			|| value == "-inf" || value == "-inff")
+	{
+		if (value[value.length() - 1] == 'f' && value != "+inf"  && value != "-inf")
+		{
+			std::cout << "char: impossible" << value << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: " << value << std::endl;
+			std::cout << "double: ";
+			for (int i = 0; i < static_cast<int>(value.length()) - 1; ++i) {
+				std::cout << value[i];
+			}
+			std::cout << std::endl;
+			return;
+		}
+		std::cout << "char: impossible" << value << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: " << value << "f" << std::endl;
+		std::cout << "double: " << value << std::endl;
+		return;
+	}
 	if (charShwoable(value))
 	{
 		std::cout << "char: " << value << std::endl;
