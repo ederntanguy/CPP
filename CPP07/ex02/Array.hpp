@@ -25,7 +25,7 @@ Array<T> &Array<T>::operator=(const Array &rhs) {
 	if (this->_value != NULL)
 		delete [] this->_value;
 	this->_value = new T[rhs._length];
-	for (int i = 0; i < rhs.size(); ++i) {
+	for (unsigned int i = 0; i < rhs.size(); ++i) {
 		this->_value[i] = rhs._value[i];
 	}
 	return *this;
