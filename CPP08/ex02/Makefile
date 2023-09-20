@@ -1,4 +1,4 @@
-NAME		=	template
+NAME		=	mutantStack
 
 SRCS		=	main.cpp
 

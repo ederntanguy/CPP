@@ -32,4 +32,5 @@ int main() {
 	value2.addNumber(-1);
 	std::cout << value2.shortestSpan() << std::endl;
 	std::cout << value2.longestSpan() << std::endl;
+	return 0;
 }
