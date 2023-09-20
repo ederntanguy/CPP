@@ -21,7 +21,6 @@ Span::~Span() {}
 
 void Span::addNumber(int value) {
 	try {
-		std::cout << static_cast<long unsigned int>(this->_nbAdd) << " " << this->_v1.size() << std::endl;
 		if (static_cast<long unsigned int>(this->_nbAdd) == this->_v1.size())
 			throw ToManyAddException();
 		this->_v1[this->_nbAdd] = value;
@@ -80,4 +79,10 @@ Span &Span::operator=(const Span &rhs) {
 	this->_v1 = rhs._v1;
 	this->_nbAdd = rhs._nbAdd;
 	return *this;
+}
+
+void Span::plageAddNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end) {
+	for (begin = begin; begin != end ; ++begin) {
+		addNumber(*begin);
+	}
 }

@@ -12,6 +12,7 @@ public:
 	~Span();
 
 	void    addNumber(int value);
+	void    plageAddNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end);
 	int     shortestSpan() const;
 	int     longestSpan() const;
 
