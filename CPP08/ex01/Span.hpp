@@ -18,14 +18,14 @@ public:
 	Span    &operator=(const Span &rhs);
 
 
-	class ToManyAdd : std::exception {
+	class ToManyAddException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {
 			return "The span is full";
 		}
 	};
 
-	class NoNumberEnoughForSearch : std::exception {
+	class NoNumberEnoughForSearchException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {
 			return "No number enough in the span";
@@ -35,6 +35,7 @@ public:
 
 private:
 	std::vector<int>    _v1;
+	int                 _nbAdd;
 };
 
 
