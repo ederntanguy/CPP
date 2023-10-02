@@ -11,14 +11,14 @@ public:
 	class GradeTooHighException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {
-			return "this grade gonna be to higher";
+			return "this grade will be to higher";
 		}
 	};
 
 	class GradeTooLowException : std::exception {
 	public:
 		virtual const char * thereIsAnIssue() {
-			return "this grade gonna be to lower";
+			return "this grade will be to lower";
 		}
 	};
 

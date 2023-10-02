@@ -44,7 +44,7 @@ Form::Form(const std::string &name, int gradeForSign, int gradeForExecute) : _na
 }
 
 
-Form::Form(const Form &src) {
+Form::Form(const Form &src) : _name(src._name) {
 	*this = src;
 }
 
@@ -59,10 +59,7 @@ Form &Form::operator=(const Form &rhs) {
 
 void Form::beSigned(Bureaucrat &person) {
 	if (static_cast<int>(person.getGrade()) > this->_gradeForSign)
-	{
-		std::cout << "test " << std::endl;
 		throw GradeTooLowException();
-	}
 	this->_sign = true;
 }
 
