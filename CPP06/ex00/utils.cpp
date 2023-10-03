@@ -116,69 +116,26 @@ double ft_atod(std::string val, int &notVal)
 	return res;
 }
 
-float ft_atof(std::string val, int &notVal)
-{
-	int countPoint = 0;
-	int j = 0;
-	if (j < static_cast<int>(val.length()) && (val[j] == '+' || val[j] == '-'))
-		j++;
-	while (j < static_cast<int>(val.length()))
-	{
-		if (!(isdigit(val[j]) || (val[j] == '.' && countPoint == 0) || (j + 1 == static_cast<int>(val.length()) && val[j] == 'f')))
-		{
-			notVal = 0;
-			return 0;
-		}
-		if (val[j] == '.')
-			countPoint++;
-		j++;
-	}
-	int i = 0;
-	int neg = 1;
-	float res;
-	if (i < static_cast<int>(val.length()) && (val[i] == '+' || val[i] == '-'))
-	{
-		if (val[i] == '-')
-			neg *= -1;
-		i++;
-	}
-	int afterPoint = 0;
-	while (i < static_cast<int>(val.length()) && val[i])
-	{
-		if (val[i] == '.')
-		{
-			i++;
-			afterPoint = 10;
-		}
-		if (afterPoint == 0)
-		{
-			if ((res * 10 + (val[i] - '0')) * neg < -FLT_MAX || ( res * 10 + (val[i] - '0')) * neg > FLT_MAX)
-			{
-				notVal = 0;
-				return 0;
-			}
-			res = res * 10 + (val[i] - '0');
-		}
-		else
-		{
-			if ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg < -FLT_MAX
-			|| ((res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint)) * neg > FLT_MAX))
-
-			{
-				notVal = 0;
-				return 0;
-			}
-			res = res + static_cast<double>(val[i] - '0') / static_cast<double>(afterPoint);
-			afterPoint *= 10;
-		}
-		i++;
-	}
-	res = res * neg;
-	return res;
+void showChar(char value) {
+	std::cout << "char: ";
+	if (value >= 32 && value < 127)
+		std::cout << "'" << value << "'" << std::endl;
+	else if (value >= 0)
+		std::cout << "non displayable" << std::endl;
+	else
+		std::cout << "impossible" << std::endl;
 }
 
-int charShwoable(std::string value) {
-	if (value.length() == 1 && ((value[0] >= 32 && value[0] <= 47) || (value[0] >= 58 && value[0] <= 126)))
-		return 1;
-	return 0;
+void showSpecial(std::string value) {
+	std::cout << "char: impossible" << std::endl;
+	std::cout << "int: impossible" << std::endl;
+	if (value == "inff" || value == "-inff" || value == "nanf") {
+		std::cout << "float: " << value << std::endl;
+		value = value.substr(0, value.length() - 1);
+		std::cout << "double: " << value << std::endl;
+	} else {
+		std::cout << "float: " << value << "f" << std::endl;
+		std::cout << "double: " << value << std::endl;
+	}
+
 }
