@@ -5,10 +5,10 @@
 
 #include "Bureaucrat.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm("", 75, 45), _target("") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("", 72, 45), _target("") {}
 
 RobotomyRequestForm::RobotomyRequestForm(const std::string &target) :
-		AForm(target, 75, 45), _target(target) {}
+		AForm(target, 72, 45), _target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm(src) {
 	*this = src;

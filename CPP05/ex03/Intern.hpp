@@ -14,7 +14,7 @@ public:
 
 	Intern &operator=(const Intern &rhs);
 
-	AForm *makeForm(std::string formType, std::string target);
+	static AForm *makeForm(const std::string& formType, const std::string& target);
 };
 
 

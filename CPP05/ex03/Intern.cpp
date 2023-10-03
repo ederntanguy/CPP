@@ -21,7 +21,7 @@ Intern &Intern::operator=(const Intern &rhs)
 	return *this;
 }
 
-AForm *Intern::makeForm(std::string formType, std::string target)
+AForm *Intern::makeForm(const std::string& formType, const std::string& target)
 {
 	AForm *returnValue = NULL;
 	std::string allForm[3] = {"robotomy request", "presidential Pardon", "shruberry creation"};
@@ -32,15 +32,15 @@ AForm *Intern::makeForm(std::string formType, std::string target)
 	{
 		case 0:
 			returnValue = new RobotomyRequestForm(target);
-			std::cout << "Intern creates " << *returnValue << std::endl;
+			std::cout << "Intern creates " << *returnValue;
 			return returnValue;
 		case 1:
 			returnValue = new PresidentialPardonForm(target);
-			std::cout << "Intern creates " << *returnValue << std::endl;
+			std::cout << "Intern creates " << *returnValue;
 			return returnValue;
 		case 2:
 			returnValue = new ShrubberyCreationForm(target);
-			std::cout << "Intern creates " << *returnValue << std::endl;
+			std::cout << "Intern creates " << *returnValue;
 			return new ShrubberyCreationForm(target);
 	}
 	std::cout << "I don't understand there is no form with this type" << std::endl;
