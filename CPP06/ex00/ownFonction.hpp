@@ -16,7 +16,6 @@
 
 int ft_atoi(std::string val, int &notVal);
 double ft_atod(std::string val, int &notVal);
-float ft_atof(std::string val, int &notVal);
 void showChar(char value);
 void showSpecial(std::string value);
 

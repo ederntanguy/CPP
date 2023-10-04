@@ -20,7 +20,7 @@ void StaticScalarConverter::convert(std::string &value)
 {
 	int notval = 1;
 
-	if (value == "inf" || value == "inff" || value == "-inf" || value == "-inff" || value == "nan" || value == "nanf") {
+	if (value == "+inf" || value == "+inff" || value == "-inf" || value == "-inff" || value == "nan" || value == "nanf") {
 		showSpecial(value);
 		return;
 	}
