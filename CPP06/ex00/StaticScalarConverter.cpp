@@ -19,13 +19,16 @@ StaticScalarConverter::~StaticScalarConverter() {}
 void StaticScalarConverter::convert(std::string &value)
 {
 	int notval = 1;
-	double result;
-	result = ft_atoi(value, notval);
+
 	if (value == "inf" || value == "inff" || value == "-inf" || value == "-inff" || value == "nan" || value == "nanf") {
 		showSpecial(value);
 		return;
 	}
-	if (notval == 0){
+	if (value[value.length() - 1] == 'f')
+		value = value.substr(0, value.length() - 1);
+	double result;
+	result = ft_atoi(value, notval);
+	if (notval == 0) {
 		notval = 1;
 		result = ft_atod(value, notval);
 	}
