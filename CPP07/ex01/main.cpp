@@ -34,15 +34,5 @@ int main( void ) {
 	for (int i = 0; i < 6; ++i) {
 		std::cout << (*intTab)[i] << std::endl;
 	}
-
-//	for (int i = 0; i < 3; ++i) {
-//		std::cout << charTab[i] << std::endl;
-//	}
-
-//	for (int i = 0; i < 4; ++i) {
-//		std::cout << boolTab[i] << std::endl;
-//	}
-
-
 	return 0;
 }

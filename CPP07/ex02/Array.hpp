@@ -1,6 +1,8 @@
 #ifndef CPP07_ARRAY_HPP
 #define CPP07_ARRAY_HPP
 
+#include <stdexcept>
+
 template<typename T>
 class Array {
 public:
@@ -8,6 +10,13 @@ public:
 	Array(unsigned int n);
 	Array(const Array &src);
 	~Array();
+
+	class InvalideIndex : std::exception {
+	public:
+		virtual const char * thereIsAnIssue() {
+			return "there is no value in this index";
+		}
+	};
 
 	Array &operator=(const Array &rhs);
 	T &operator[](size_t pos);
@@ -18,13 +27,12 @@ private:
 	T *_value;
 };
 
-
-
 template<typename T>
 Array<T> &Array<T>::operator=(const Array &rhs) {
 	if (this->_value != NULL)
 		delete [] this->_value;
 	this->_value = new T[rhs._length];
+	this->_length = rhs.size();
 	for (unsigned int i = 0; i < rhs.size(); ++i) {
 		this->_value[i] = rhs._value[i];
 	}
@@ -62,6 +70,8 @@ unsigned int Array<T>::size() const {
 
 template<typename T>
 T &Array<T>::operator[](size_t pos) {
+	if (pos >= this->_length)
+		throw InvalideIndex();
 	return this->_value[pos];
 }
 

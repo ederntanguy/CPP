@@ -13,6 +13,14 @@ int main() {
 		std::cout << intValue[i] << std::endl;
 	}
 
+	std::cout << "int length = " << intValue.size() << std::endl;
+
+	try {
+		std::cout << intValue[11] << std::endl;
+	} catch (Array<int>::InvalideIndex &e) {
+		std::cout << e.thereIsAnIssue() << std::endl;
+	}
+
 	std::cout << "\nstring value" << std::endl;
 	Array<std::string> *stringValue = new Array<std::string>(5);
 	for (int i = 0; i < 5; ++i) {
