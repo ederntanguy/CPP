@@ -2,6 +2,7 @@
 #define CPP07_ARRAY_HPP
 
 #include <stdexcept>
+#include <cstdlib>
 
 template<typename T>
 class Array {
@@ -11,9 +12,9 @@ public:
 	Array(const Array &src);
 	~Array();
 
-	class InvalideIndex : std::exception {
+	class InvalideIndex : public std::exception {
 	public:
-		virtual const char * thereIsAnIssue() {
+		virtual const char *what() const throw() {
 			return "there is no value in this index";
 		}
 	};
@@ -54,6 +55,7 @@ Array<T>::Array(unsigned int n) : _length(n) {
 
 template<typename T>
 Array<T>::Array(const Array &src) {
+	this->_value = NULL;
 	*this = src;
 }
 
