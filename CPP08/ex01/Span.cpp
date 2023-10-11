@@ -14,6 +14,8 @@ Span::Span(int N) : _nbAdd(0) {
 }
 
 Span::Span(const Span &src) {
+	std::vector<int> v2(src._v1.size());
+	this->_v1 = v2;
 	*this = src;
 }
 
@@ -76,7 +78,10 @@ int Span::longestSpan() const {
 }
 
 Span &Span::operator=(const Span &rhs) {
-	this->_v1 = rhs._v1;
+	for (int i = 0; i < rhs._v1.size(); ++i)
+	{
+		this->_v1[i] = rhs._v1[i];
+	}
 	this->_nbAdd = rhs._nbAdd;
 	return *this;
 }
