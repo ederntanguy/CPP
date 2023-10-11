@@ -78,7 +78,7 @@ int Span::longestSpan() const {
 }
 
 Span &Span::operator=(const Span &rhs) {
-	for (int i = 0; i < rhs._v1.size(); ++i)
+	for (int i = 0; i < static_cast<int>(rhs._v1.size()); ++i)
 	{
 		this->_v1[i] = rhs._v1[i];
 	}
@@ -87,7 +87,8 @@ Span &Span::operator=(const Span &rhs) {
 }
 
 void Span::plageAddNumber(std::vector<int>::const_iterator begin, std::vector<int>::const_iterator end) {
-	for (begin = begin; begin != end ; ++begin) {
+	while (begin != end) {
 		addNumber(*begin);
+		begin++;
 	}
 }

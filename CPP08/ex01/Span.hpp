@@ -19,7 +19,7 @@ public:
 	Span    &operator=(const Span &rhs);
 
 
-	class ToManyAddException : public std::exception {
+	class ToManyAddException : std::exception {
 	public:
 		virtual const char *thereIsAnIssue() {
 			return "The span is full";
