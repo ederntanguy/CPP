@@ -5,7 +5,7 @@
 int main() {
 	Span value(20000);
 	for (int i = 0; i < 20000; ++i) {
-		value.addNumber(i * i / (1 / i + 1));
+		value.addNumber(i * i);
 	}
 	value.addNumber(4);
 	std::cout << value.shortestSpan() << std::endl;
