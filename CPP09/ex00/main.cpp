@@ -19,5 +19,5 @@ int main(int argc, char **argv) {
 		std::cerr << "The file : data.csv doesn't exist" << std::endl;
 		return 0;
 	}
-//	std::map<std::string, std::string> information;
+
 }
