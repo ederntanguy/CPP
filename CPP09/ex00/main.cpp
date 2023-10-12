@@ -23,5 +23,7 @@ int main(int argc, char **argv) {
 
 	BitcoinExchange information;
 	information.creatData(data);
+	information.showResult(inputFile);
 	data.close();
+	inputFile.close();
 }

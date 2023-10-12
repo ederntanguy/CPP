@@ -13,9 +13,10 @@ public:
 
 	BitcoinExchange &operator=(const BitcoinExchange &rhs);
 
+	void showResult(std::fstream &inputFile);
 	void creatData(std::fstream &fileData);
 private:
-	std::map<std::string, double> data;
+	std::map<std::string, double> _data;
 };
 
 
