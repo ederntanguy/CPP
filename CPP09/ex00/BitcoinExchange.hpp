@@ -2,20 +2,20 @@
 #define CPP09_BITCOINEXCHANGE_HPP
 
 #include <map>
+#include <fstream>
 #include <string>
 
 class BitcoinExchange {
 public:
 	BitcoinExchange();
-	BitcoinExchange(std::string *data, std::string *inputFile);
 	BitcoinExchange(const BitcoinExchange &src);
 	~BitcoinExchange();
 
 	BitcoinExchange &operator=(const BitcoinExchange &rhs);
+
+	void creatData(std::fstream &fileData);
 private:
-	std::map<std::string, std::string> _information;
-	std::string *_data;
-	std::string *_inputFile;
+	std::map<std::string, double> data;
 };
 
 

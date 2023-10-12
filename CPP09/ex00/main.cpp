@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
-#include <map>
+
+#include "BitcoinExchange.hpp"
 
 int main(int argc, char **argv) {
 	if (argc != 2) {
@@ -10,7 +11,7 @@ int main(int argc, char **argv) {
 	std::fstream inputFile;
 	inputFile.open(argv[1]);
 	if (!inputFile) {
-		std::cerr << "The file : " << argv[1] << "doesn't exist" << std::endl;
+		std::cerr << "The file : " << argv[1] << " doesn't exist" << std::endl;
 		return 0;
 	}
 	std::fstream data;
@@ -20,4 +21,7 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 
+	BitcoinExchange information;
+	information.creatData(data);
+	data.close();
 }
