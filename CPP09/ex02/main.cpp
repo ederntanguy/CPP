@@ -31,7 +31,7 @@ int listPart(std::list<unsigned long> &initallist) {
 	std::list<std::pair<unsigned long, unsigned long> > pairedArray = makeOperation.makePair(initallist);
 
 	makeOperation.sortInPairs(pairedArray);
-
+	makeOperation.pairsInsertionSort(pairedArray, pairedArray.size() - 1);
 	std::list<std::pair<unsigned long, unsigned long> >::const_iterator it;
 	std::list<std::pair<unsigned long, unsigned long> >::const_iterator ite = pairedArray.end();
 	for (it = pairedArray.begin(); it != ite; ++it) {
