@@ -1,6 +1,6 @@
 NAME		=	btc
 
-SRCS		=	main.cpp BitcoinExchange.cpp
+SRCS		=	main.cpp PmergeMe.cpp
 
 OBJDIR_SRCS		=	obj
 
