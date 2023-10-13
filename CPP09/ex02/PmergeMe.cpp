@@ -47,7 +47,7 @@ PmergeMe::makePair(std::list<unsigned long > input) const {
 }
 
 void
-PmergeMe::sortPair(std::vector<std::pair<unsigned long, unsigned long> > &values) const {
+PmergeMe::sortInPairs(std::vector<std::pair<unsigned long, unsigned long> > &values) const {
 	size_t i = 0;
 	unsigned long tmp;
 	while (i < values.size()) {
@@ -61,7 +61,7 @@ PmergeMe::sortPair(std::vector<std::pair<unsigned long, unsigned long> > &values
 }
 
 void
-PmergeMe::sortPair(std::list<std::pair<unsigned long, unsigned long> > &values) const {
+PmergeMe::sortInPairs(std::list<std::pair<unsigned long, unsigned long> > &values) const {
 	std::list<std::pair<unsigned long, unsigned long> >::iterator it;
 	std::list<std::pair<unsigned long, unsigned long> >::iterator ite = values.end();
 
@@ -74,3 +74,45 @@ PmergeMe::sortPair(std::list<std::pair<unsigned long, unsigned long> > &values) 
 		}
 	}
 }
+
+void PmergeMe::insertPairs(std::pair<unsigned long, unsigned long> element,
+						   std::vector<std::pair<unsigned long, unsigned long> > &values,
+						   int pos) const {
+	if (pos < 0)
+		values[0] = element;
+	else if (element.second > values[pos].second) {
+		values[pos + 1] = element;
+	} else {
+		values[pos + 1] = values[pos];
+		insertPairs(element, values, pos - 1);
+	}
+}
+
+void PmergeMe::pairsInsertionSort(
+		std::vector<std::pair<unsigned long, unsigned long> > &values,
+		int pos) const {
+	if (pos < 1)
+		return;
+	pairsInsertionSort(values, pos - 1);
+	insertPairs(values[pos], values, pos - 1);
+}
+
+void PmergeMe::insertPairs(std::pair<unsigned long, unsigned long> element,
+						   std::list<std::pair<unsigned long, unsigned long> > &values,
+						   int pos) const {
+	(void)element;
+	(void)values;
+	(void)pos;
+}
+
+void PmergeMe::pairsInsertionSort(
+		std::list<std::pair<unsigned long, unsigned long> > &values,
+		int pos) const {
+	if (pos < 1)
+		return;
+	pairsInsertionSort(values, pos - 1);
+//	insertPairs(values[pos], values, pos - 1);
+}
+
+
+

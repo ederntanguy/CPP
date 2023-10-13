@@ -12,8 +12,8 @@ int vectorPart(std::vector<unsigned long> &initalVector) {
 	if (isOdd)
 		initalVector.pop_back();
 	std::vector<std::pair<unsigned long, unsigned long> > pairedArray = makeOperation.makePair(initalVector);
-	makeOperation.sortPair(pairedArray);
-
+	makeOperation.sortInPairs(pairedArray);
+	makeOperation.pairsInsertionSort(pairedArray, pairedArray.size() - 1);
 	for (size_t i = 0; i < pairedArray.size(); ++i) {
 		std::cout << pairedArray[i].first << ", " << pairedArray[i].second << std::endl;
 	}
@@ -30,7 +30,7 @@ int listPart(std::list<unsigned long> &initallist) {
 		initallist.pop_back();
 	std::list<std::pair<unsigned long, unsigned long> > pairedArray = makeOperation.makePair(initallist);
 
-	makeOperation.sortPair(pairedArray);
+	makeOperation.sortInPairs(pairedArray);
 
 	std::list<std::pair<unsigned long, unsigned long> >::const_iterator it;
 	std::list<std::pair<unsigned long, unsigned long> >::const_iterator ite = pairedArray.end();
