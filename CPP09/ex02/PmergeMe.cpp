@@ -17,7 +17,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &rhs) {
 }
 
 std::vector<std::pair<unsigned long, unsigned long> >
-PmergeMe::makePair(std::vector<unsigned long > input) {
+PmergeMe::makePair(std::vector<unsigned long > input) const {
 	std::vector<std::pair<unsigned long, unsigned long> > returnVec;
 	size_t i = 0;
 	while (i < input.size() - 1) {
@@ -28,7 +28,7 @@ PmergeMe::makePair(std::vector<unsigned long > input) {
 }
 
 std::list<std::pair<unsigned long, unsigned long> >
-PmergeMe::makePair(std::list<unsigned long > input) {
+PmergeMe::makePair(std::list<unsigned long > input) const {
 	std::list<std::pair<unsigned long, unsigned long> > returnList;
 	std::list<unsigned long >::const_iterator it = input.begin();
 	std::list<unsigned long >::const_iterator ite = input.end();
@@ -44,4 +44,33 @@ PmergeMe::makePair(std::list<unsigned long > input) {
 		++it;
 	}
 	return returnList;
+}
+
+void
+PmergeMe::sortPair(std::vector<std::pair<unsigned long, unsigned long> > &values) const {
+	size_t i = 0;
+	unsigned long tmp;
+	while (i < values.size()) {
+		if (values[i].first > values[i].second) {
+			tmp = values[i].first;
+			values[i].first = values[i].second;
+			values[i].second = tmp;
+		}
+		i++;
+	}
+}
+
+void
+PmergeMe::sortPair(std::list<std::pair<unsigned long, unsigned long> > &values) const {
+	std::list<std::pair<unsigned long, unsigned long> >::iterator it;
+	std::list<std::pair<unsigned long, unsigned long> >::iterator ite = values.end();
+
+	unsigned long tmp;
+	for (it = values.begin(); it != ite; ++it) {
+		if ((*it).first > (*it).second) {
+			tmp = (*it).first;
+			(*it).first = (*it).second;
+			(*it).second = tmp;
+		}
+	}
 }

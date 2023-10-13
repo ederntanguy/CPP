@@ -11,8 +11,10 @@ public:
 	~PmergeMe();
 
 	PmergeMe &operator=(const PmergeMe &rhs);
-	std::vector<std::pair<unsigned long, unsigned long> >  makePair(std::vector<unsigned long > input);
-	std::list<std::pair<unsigned long, unsigned long> >  makePair(std::list<unsigned long > input);
+	std::vector<std::pair<unsigned long, unsigned long> >  makePair(std::vector<unsigned long > input) const;
+	std::list<std::pair<unsigned long, unsigned long> >  makePair(std::list<unsigned long > input) const;
+	void sortPair(std::vector<std::pair<unsigned long, unsigned long> > &values) const;
+	void sortPair(std::list<std::pair<unsigned long, unsigned long> > &values) const;
 };
 
 
