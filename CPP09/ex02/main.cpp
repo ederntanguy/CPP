@@ -9,13 +9,17 @@ int vectorPart(std::vector<unsigned long> &initalVector) {
 	bool isOdd = initalVector.size() % 2;
 	unsigned long lastVal = initalVector[initalVector.size() - 1];
 	(void)lastVal;
+
+	std::vector<unsigned long> sortedArray;
+
 	if (isOdd)
 		initalVector.pop_back();
 	std::vector<std::pair<unsigned long, unsigned long> > pairedArray = makeOperation.makePair(initalVector);
 	makeOperation.sortInPairs(pairedArray);
 	makeOperation.pairsInsertionSort(pairedArray, pairedArray.size() - 1);
-	for (size_t i = 0; i < pairedArray.size(); ++i) {
-		std::cout << pairedArray[i].first << ", " << pairedArray[i].second << std::endl;
+	sortedArray = makeOperation.creatSortedArray(pairedArray, lastVal, isOdd);
+	for (size_t i = 0; i < sortedArray.size(); ++i) {
+		std::cout << sortedArray[i] << std::endl;
 	}
 
 	return 0;
@@ -26,16 +30,23 @@ int listPart(std::list<unsigned long> &initallist) {
 	bool isOdd = initallist.size() % 2;
 	unsigned long lastVal = initallist.back();
 	(void)lastVal;
+
+	std::list<unsigned long> sortedArray;
+
 	if (isOdd)
 		initallist.pop_back();
 	std::list<std::pair<unsigned long, unsigned long> > pairedArray = makeOperation.makePair(initallist);
 
 	makeOperation.sortInPairs(pairedArray);
 	makeOperation.pairsInsertionSort(pairedArray, pairedArray.size() - 1);
-	std::list<std::pair<unsigned long, unsigned long> >::const_iterator it;
-	std::list<std::pair<unsigned long, unsigned long> >::const_iterator ite = pairedArray.end();
-	for (it = pairedArray.begin(); it != ite; ++it) {
-		std::cout << (*it).first << ", " << (*it).second << std::endl;
+
+	sortedArray = makeOperation.creatSortedArray(pairedArray, lastVal, isOdd);
+
+
+	std::list<unsigned long>::const_iterator it;
+	std::list<unsigned long>::const_iterator ite = sortedArray.end();
+	for (it = sortedArray.begin(); it != ite; ++it) {
+		std::cout << *it << std::endl;
 	}
 
 	return 0;

@@ -19,6 +19,8 @@ public:
 	void pairsInsertionSort(std::list<std::pair<unsigned long, unsigned long> > &values, int pos) const;
 	void insertPairs(std::pair<unsigned long, unsigned long> element, std::vector<std::pair<unsigned long, unsigned long> > &values, int pos) const;
 	void insertPairs(std::pair<unsigned long, unsigned long> element, std::list<std::pair<unsigned long, unsigned long> > &values, int pos) const;
+	std::vector<unsigned long> creatSortedArray(std::vector<std::pair<unsigned long, unsigned long> > &values, unsigned long straggler, bool isOdd);
+	std::list<unsigned long> creatSortedArray(std::list<std::pair<unsigned long, unsigned long> > &values, unsigned long straggler, bool isOdd);
 
 };
 

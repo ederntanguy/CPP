@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <iterator>
+#include <algorithm>
 
 PmergeMe::PmergeMe() {}
 
@@ -44,6 +45,40 @@ PmergeMe::makePair(std::list<unsigned long > input) const {
 		++it;
 	}
 	return returnList;
+}
+
+size_t jacobsthal(size_t val) {
+	if (val == 0)
+		return 0;
+	if (val == 1)
+		return 1;
+	return (jacobsthal(val - 1) + 2 * jacobsthal(val - 2));
+}
+
+std::vector<unsigned long>
+        creatJacobInsertionSequence(const std::vector<unsigned long> &pend) {
+	size_t pendLen = pend.size() - 1;
+	std::vector<size_t> sequence;
+	size_t index = 3; // first one that matteres
+
+	while (jacobsthal(index) < pendLen) {
+		sequence.push_back(jacobsthal(index));
+		index++;
+	}
+	return sequence;
+}
+
+std::list<unsigned long>
+		creatJacobInsertionSequence(const std::list<unsigned long> &pend) {
+	size_t pendLen = pend.size() - 1;
+	std::list<size_t> sequence;
+	size_t index = 3; // first one that matteres because we already insert the first one
+
+	while (jacobsthal(index) < pendLen) {
+		sequence.push_back(jacobsthal(index));
+		index++;
+	}
+	return sequence;
 }
 
 void
@@ -125,6 +160,119 @@ void PmergeMe::pairsInsertionSort(
 	std::advance(it, pos);
 	insertPairs(*it, values, pos - 1);
 }
+
+void showVec(std::vector<unsigned long> &vec) {
+	for (size_t i = 0; i < vec.size(); ++i) {
+		std::cout << vec[i] << std::endl;
+	}
+}
+
+std::vector<unsigned long> PmergeMe::creatSortedArray(
+		std::vector<std::pair<unsigned long, unsigned long> > &values,
+		unsigned long straggler, bool isOdd) {
+	std::vector<unsigned long> s;
+	std::vector<unsigned long> pend;
+	// creat s
+	for (size_t i = 0; i < values.size(); ++i) {
+		s.push_back(values[i].second);
+		pend.push_back(values[i].first);
+	}
+	std::vector<unsigned long>::iterator it = s.begin();
+	s.insert(it, *(pend.begin()));
+
+	// time to had pend in s
+	size_t iterator = 0;
+	std::vector<size_t> indexsequence;
+	indexsequence.push_back(1);
+	int where = 0;
+	unsigned long valToHade;
+
+	std::vector<size_t> sequence = creatJacobInsertionSequence(pend);
+
+	while (iterator <= pend.size()) {
+		if (sequence.size() != 0 && where != 1) {
+			indexsequence.push_back(sequence[0]);
+			valToHade = pend[sequence[0] - 1];
+			sequence.erase(sequence.begin());
+			where = 1;
+		} else {
+			if (std::find(indexsequence.begin(), indexsequence.end(), iterator) != indexsequence.end())
+				iterator++;
+			indexsequence.push_back(iterator);
+			valToHade = pend[iterator - 1];
+			where = 2;
+		}
+		it = std::lower_bound(s.begin(), s.end(), valToHade);
+		s.insert(it, valToHade);
+		iterator++;
+	}
+	if (isOdd) {
+		it = std::lower_bound(s.begin(), s.end(), straggler);
+		s.insert(it, straggler);
+	}
+	return s;
+}
+
+std::list<unsigned long> PmergeMe::creatSortedArray(
+		std::list<std::pair<unsigned long, unsigned long> > &values,
+		unsigned long straggler, bool isOdd) {
+
+	std::list<unsigned long> s;
+	std::list<unsigned long> pend;
+
+	std::list<std::pair<unsigned long, unsigned long> >::iterator itV;
+	std::list<std::pair<unsigned long, unsigned long> >::iterator itVe = values.end();
+
+	for (itV = values.begin(); itV != itVe; ++itV) {
+		s.push_back((*itV).second);
+		pend.push_back((*itV).first);
+	}
+	s.insert(s.begin(), *(pend.begin()));
+
+	// time to had pend in s
+
+	size_t iterator = 0;
+	std::list<size_t> indexsequence;
+	indexsequence.push_back(1);
+	int where = 0;
+	unsigned long valToHade;
+
+	std::list<size_t> sequence = creatJacobInsertionSequence(pend);
+	std::list<size_t>::iterator itSequence;
+	std::list<size_t>::iterator itPend;
+	std::list<size_t>::iterator itS;
+
+	while (iterator <= pend.size()) {
+		itSequence = sequence.begin();
+		itPend = pend.begin();
+		if (sequence.size() != 0 && where != 1) {
+
+			indexsequence.push_back(*itSequence);
+			std::advance(itPend, (*itSequence) - 1);
+			valToHade = *itPend;
+			sequence.erase(sequence.begin());
+			where = 1;
+		} else {
+			if (std::find(indexsequence.begin(), indexsequence.end(), iterator) != indexsequence.end())
+				iterator++;
+			indexsequence.push_back(iterator);
+			std::advance(itPend, iterator - 1);
+			valToHade = *itPend;
+			where = 2;
+		}
+		itS = std::lower_bound(s.begin(), s.end(), valToHade);
+		s.insert(itS, valToHade);
+		iterator++;
+	}
+	if (isOdd) {
+		itS = std::lower_bound(s.begin(), s.end(), straggler);
+		s.insert(itS, straggler);
+	}
+	return s;
+}
+
+
+
 
 
 
