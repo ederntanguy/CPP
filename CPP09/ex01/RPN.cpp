@@ -36,7 +36,11 @@ void RPN::addOperator(char operatorInput) {
 		this->_operand.push(tmp2 / tmp1);
 }
 
-void RPN::showActualResult() const {
+void RPN::showResult() const {
+	if (this->_operand.size() > 1) {
+		std::cerr << "Error: there are not enough operators" << std::endl;
+		return;
+	}
 	std::cout << this->_operand.top() << std::endl;
 }
 

@@ -13,7 +13,7 @@ public:
 	RPN &operator=(const RPN &rhs);
 	void	addOperand(int operand);
 	void	addOperator(char operatorInput);
-	void	showActualResult() const;
+	void	showResult() const;
 	size_t	stackSize() const;
 private:
 	std::stack<int> _operand;

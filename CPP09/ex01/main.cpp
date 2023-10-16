@@ -35,7 +35,6 @@ int main(int argc, char **argv) {
 			infoTreatment.addOperand(input[i] - '0');
 		else if (input[i] != ' ') {
 			if (infoTreatment.stackSize() < 2) {
-				std::cout <<
 				std::cerr << "Error: can't do the operation" << std::endl;
 				return 1;
 			}
@@ -43,6 +42,6 @@ int main(int argc, char **argv) {
 		}
 		i++;
 	}
-	infoTreatment.showActualResult();
+	infoTreatment.showResult();
 	return 0;
 }
