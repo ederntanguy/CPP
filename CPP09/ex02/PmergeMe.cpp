@@ -100,19 +100,25 @@ void PmergeMe::pairsInsertionSort(
 
 void PmergeMe::insertPairs(std::pair<unsigned long, unsigned long> element,
 						   std::list<std::pair<unsigned long, unsigned long> > &values,
-						   int pos) const {
-	std::list<std::pair<unsigned long, unsigned long> >::iterator itStart = values.begin();
-	std::list<std::pair<unsigned long, unsigned long> >::iterator itPos = values.begin();
-	std::advance(itPos, pos);
-	std::list<std::pair<unsigned long, unsigned long> >::iterator itPosPOne = values.begin();
-	std::advance(itPosPOne, pos + 1);
+						   int pos, std::list<std::pair<unsigned long, unsigned long> >::iterator itPosSend, int isSend) const {
+
+	std::list<std::pair<unsigned long, unsigned long> >::iterator itPos;
+	if (isSend) {
+		itPos = itPosSend;
+		itPos--;
+	} else {
+		itPos = values.begin();
+		std::advance(itPos, pos);
+	}
+	std::list<std::pair<unsigned long, unsigned long> >::iterator itPosPOne = itPos;
+	itPosPOne++;
 	if (pos < 0)
-		*itStart = element;
+		*(values.begin()) = element;
 	else if (element.second > (*itPos).second) {
 		(*itPosPOne) = element;
 	} else {
 		(*itPosPOne) = (*itPos);
-		insertPairs(element, values, pos - 1);
+		insertPairs(element, values, pos - 1, itPos, 1);
 	}
 }
 
@@ -124,7 +130,7 @@ void PmergeMe::pairsInsertionSort(
 	pairsInsertionSort(values, pos - 1);
 	std::list<std::pair<unsigned long, unsigned long> >::iterator it = values.begin();
 	std::advance(it, pos);
-	insertPairs(*it, values, pos - 1);
+	insertPairs(*it, values, pos - 1, it, 0);
 }
 
 void showVec(std::vector<unsigned long> &vec) {
