@@ -34,8 +34,6 @@ double getDifBetweenTwoDate(std::string date1, std::string date2) {
 int errorGestion(std::string &line, double &value, std::string &date) {
 	int count = 0;
 	std::string tmpline = line;
-	(void)value;
-	(void )date;
 	if (line.find('|') == std::string::npos ) {
 		std::cerr << "Error: bad input => " << line << std::endl;
 		return 0;
@@ -64,7 +62,7 @@ int errorGestion(std::string &line, double &value, std::string &date) {
 		std::cerr << "Error: bad input => " << line << std::endl;
 		return 0;
 	}
-	tmpline = tmpline.substr(tmpline.find(' ') + 1, tmpline.length());
+	tmpline = tmpline.substr(tmpline.find('|') + 1, tmpline.length());
 	value = atof(tmpline.c_str());
 	if (value < 0) {
 		std::cerr << "Error: not a positive number" << std::endl;
@@ -74,7 +72,7 @@ int errorGestion(std::string &line, double &value, std::string &date) {
 		std::cerr << "Error: too large a number" << std::endl;
 		return 0;
 	}
-	date = line.substr(0, line.length() - tmpline.length() - 3);
+	date = line.substr(0, line.find(" "));
 	return 1;
 }
 
@@ -137,7 +135,10 @@ void BitcoinExchange::showResult(std::fstream &inputFile)
 				double tmp = getDifBetweenTwoDate(it->first, date);
 				if (tmp < minDeltaTime && tmp >= 0) {
 					indexCloser = it->first;
-					minDeltaTime = getDifBetweenTwoDate(it->first, date);
+					minDeltaTime = tmp;
+				}
+				if (tmp <= 0) {
+					break;
 				}
 			}
 			std::cout << this->_data[indexCloser] * value << std::endl;
