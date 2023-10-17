@@ -70,7 +70,7 @@ int listPart(std::list<unsigned long> &initallist) {
 }
 
 int main(int argc, char **argv) {
-	if (argc == 1) {
+	if (argc < 3) {
 		std::cerr << "Error: please enter some values" << std::endl;
 		return 1;
 	}
