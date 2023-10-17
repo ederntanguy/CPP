@@ -5,9 +5,16 @@
 int checkInput(std::string input) {
 	int i = 0;
 	int isSpace = 1;
+	int oneDigit = 0;
+	if (input.length() < 1) {
+		std::cerr << "Error: not a valide input" << std::endl;
+		return 1;
+	}
 	while (input[i]) {
-		if ((isdigit(input[i]) || input[i] == '-' || input[i] == '+' || input[i] == '*' || input[i] == '/') && isSpace == 1)
+		if ((isdigit(input[i]) || input[i] == '-' || input[i] == '+' || input[i] == '*' || input[i] == '/') && isSpace == 1) {
 			isSpace = 0;
+			oneDigit = 1;
+		}
 		else if (input[i] == ' ')
 			isSpace = 1;
 		else {
@@ -15,6 +22,10 @@ int checkInput(std::string input) {
 			return 1;
 		}
 		i++;
+	}
+	if (oneDigit == 0) {
+		std::cerr << "Error: not a valide input" << std::endl;
+		return 1;
 	}
 	return 0;
 }
